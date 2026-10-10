@@ -84,6 +84,8 @@ scripts = re.findall(r'<script>.*?</script>', body, re.S)
 body = re.sub(r'<script>.*?</script>', '', body, flags=re.S)
 body = fix_urls(body).strip()
 script = '\n'.join(scripts).replace("const PIXEL_ID=", "var PIXEL_ID=")
+# WordPress trasforma & in &#038; e rompe gli script: negli script di sorgente.html niente & (per && si usano if annidati, nelle regex \\x26)
+assert '&' not in script, 'Negli script di sorgente.html non usare &: WordPress lo trasforma in &#038; e rompe la pagina'
 
 content = ('<!-- wp:html -->\n<style>\n' + style + '\n</style>\n' + jsonld + '\n<div id="ulc">\n' + body +
            '\n</div>\n' + script + '\n<!-- /wp:html -->\n')

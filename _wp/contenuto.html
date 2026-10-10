@@ -1085,7 +1085,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     fbq('init',PIXEL_ID);fbq('track','PageView');
   }
   let scelta=null;try{scelta=localStorage.getItem('ul_cookie')}catch(e){}
-  if(scelta==='si')loadPixel();else if(scelta!=='no'&&!/[?&]og\b/.test(location.search))ckb.hidden=false;
+  if(scelta==='si')loadPixel();else if(scelta!=='no'){if(!/[?\x26]og\b/.test(location.search))ckb.hidden=false;}
   function salva(v){try{localStorage.setItem('ul_cookie',v)}catch(e){}ckb.hidden=true;if(v==='si')loadPixel();}
   document.getElementById('ckSi').addEventListener('click',()=>salva('si'));
   document.getElementById('ckNo').addEventListener('click',()=>salva('no'));
@@ -1102,7 +1102,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   function nascondi(){pop.classList.remove('on');pop.setAttribute('aria-hidden','true');try{localStorage.setItem(KEY,String(Date.now()))}catch(e){}}
   function mostra(){
     if(fatto) return;
-    const ck=document.getElementById('ckb'); if(ck&&!ck.hidden){setTimeout(mostra,4000);return;}
+    const ck=document.getElementById('ckb'); if(ck){if(!ck.hidden){setTimeout(mostra,4000);return;}}
     fatto=true; pop.classList.add('on'); pop.setAttribute('aria-hidden','false');
     try{localStorage.setItem(KEY,String(Date.now()))}catch(e){}
   }
