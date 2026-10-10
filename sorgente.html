@@ -369,7 +369,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(243,242,238,.93);backdr
 .piano li.st::before{background:var(--viola);border-radius:2px;rotate:45deg}
 .piano .btn{width:100%;padding:15px 18px}
 .piano .sotto-btn{font-size:12.5px;color:var(--gray);text-align:center;margin-top:9px}
-.piano .badge{position:absolute;top:-13px;left:18px;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--blu);border-radius:4px;padding:6px 10px 5px;rotate:-2deg;box-shadow:3px 3px 0 rgba(59,54,56,.16)}
+.piano .badge{position:relative;align-self:flex-start;margin:-39px 0 12px -2px;max-width:100%;line-height:1.35;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--blu);border-radius:4px;padding:6px 10px 5px;rotate:-2deg;box-shadow:3px 3px 0 rgba(59,54,56,.16)}
 .piano.vip{box-shadow:0 0 0 3px var(--fucsia),var(--ombra),7px 8px 0 rgba(205,36,113,.25)}
 .piano.vip .badge{background:var(--viola)}
 .piano.vip .sotto{color:var(--fucsia)}
@@ -540,7 +540,7 @@ h2.sh em{white-space:nowrap}
 .dcard .tag{margin-left:8px;vertical-align:top;margin-top:10px}
 .dcard .tag:first-child{margin-left:0}
 /* scalata dei premi */
-.scala-wrap{position:relative;margin-top:44px}
+.scala-wrap{position:relative;margin-top:76px}
 .scala{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;position:relative;z-index:1}
 .gradino{display:flex;flex-direction:column;justify-content:flex-end}
 .gradino .card{background:#fff;border-radius:14px;padding:16px 15px 15px;box-shadow:var(--ombra);position:relative}
@@ -553,10 +553,13 @@ h2.sh em{white-space:nowrap}
 .g5 .card{box-shadow:var(--ombra),6px 7px 0 rgba(205,36,113,.28)}
 .g5 .ic{background:var(--fucsia);color:#fff}
 .g5 small{color:var(--fucsia)}
-.bandierina{position:absolute;top:-30px;right:16px;color:var(--fucsia);rotate:8deg}
-.scala-sfondo{position:absolute;inset:-10px 0 0;z-index:0;pointer-events:none}
-.scala-sfondo svg{position:absolute;left:4%;right:4%;top:2%;width:92%;height:70%;color:var(--blu);opacity:.35}
-.scala-sfondo span{position:absolute;font-family:var(--mano);font-size:1.3rem;color:var(--blu);opacity:.55;rotate:-8deg}
+.bandierina{position:absolute;top:-47px;left:calc(50% - 6px);color:var(--fucsia);z-index:2}
+.bandierina svg{width:28px;height:28px}
+.scala-sfondo{position:absolute;inset:0;z-index:0;pointer-events:none}
+.scala-sfondo svg{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible}
+.scala-sfondo path{fill:none;stroke:var(--blu);stroke-width:3.5;stroke-dasharray:1 11;stroke-linecap:round}
+.scala-sfondo circle{fill:#fff;stroke:var(--blu);stroke-width:3}
+.scala-sfondo circle.top{fill:var(--fucsia);stroke:var(--fucsia)}
 .partenza{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:14px;color:var(--gray)}
 .partenza .ic{display:inline-flex;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:var(--ombra);align-items:center;justify-content:center;color:var(--blu)}
 /* club o percorso 1:1 */
@@ -587,7 +590,7 @@ h2.sh em{white-space:nowrap}
 .pop p{font-size:14px;margin:6px 0 14px;line-height:1.45}
 .pop .btn{width:100%;padding:14px 18px}
 .pop .x{position:absolute;top:8px;right:8px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 4px 10px -4px rgba(0,0,0,.3)}
-@media (max-width:900px){.scala{grid-template-columns:1fr;gap:12px}.gradino{flex-direction:row;align-items:stretch;gap:12px}.gradino .card{flex:1}.gradino .scalino{order:-1;margin-top:0;flex:none;height:auto!important;border-radius:10px;align-items:center;padding-top:0;font-size:1.3rem}.bandierina{top:-22px}.scala-sfondo{display:none}.g1 .scalino{width:48px}.g2 .scalino{width:56px}.g3 .scalino{width:64px}.g4 .scalino{width:72px}.g5 .scalino{width:80px}.duestrade{grid-template-columns:1fr}}
+@media (max-width:900px){.scala{grid-template-columns:1fr;gap:12px}.gradino{flex-direction:row;align-items:stretch;gap:12px}.gradino .card{flex:1}.gradino .scalino{order:-1;margin-top:0;flex:none;height:auto!important;border-radius:10px;align-items:center;padding-top:0;font-size:1.3rem}.bandierina{top:10px;left:auto;right:12px}.scala-wrap{margin-top:40px}.scala-sfondo{display:none}.g1 .scalino{width:48px}.g2 .scalino{width:56px}.g3 .scalino{width:64px}.g4 .scalino{width:72px}.g5 .scalino{width:80px}.duestrade{grid-template-columns:1fr}}
 @media (max-width:640px){.pop{left:16px;right:16px;bottom:92px;width:auto}.pop img{display:none}}
 </style>
 </head>
@@ -811,7 +814,7 @@ h2.sh em{white-space:nowrap}
         <p class="frase">Per chi sa già dove vuole arrivare e vuole tutto sotto mano, adesso</p>
         <ul>
           <li>Tutto il VIP, sbloccato dal primo giorno</li>
-          <li>Tutti i moduli, da M0 a TikTok</li>
+          <li>Tutti i moduli, dall'introduzione a TikTok</li>
           <li class="st">Stratego: 1 account incluso, account aggiuntivi scontati</li>
           <li class="hl">Corso CapCut di Mickel e corso AI, subito</li>
           <li>Piano editoriale del mese con esempi per nicchia</li>
@@ -970,7 +973,7 @@ h2.sh em{white-space:nowrap}
       <p class="lead">Ogni like che ricevi dalle altre persone del Club è un punto. I livelli sono 9, e ognuno sblocca qualcosa</p>
     </div>
     <div class="scala-wrap">
-      <div class="scala-sfondo" aria-hidden="true"><svg viewBox="0 0 1000 300" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"><path d="M10 290 C 180 280, 220 220, 330 205 S 520 170, 600 120 S 820 60, 990 10"/></svg><span style="left:2%;top:8%">+1 like</span><span style="left:30%;top:2%">+10</span><span style="left:56%;top:-4%">+5</span><span style="left:18%;top:30%">+2</span></div>
+      <div class="scala-sfondo" aria-hidden="true"><svg id="sentiero"></svg></div>
       <div class="scala">
         <div class="gradino g1 reveal"><div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8c-1.5-3-5-3.5-5-1.2C7 8 9 8 12 8Zm0 0c1.5-3 5-3.5 5-1.2C17 8 15 8 12 8Z"/></svg></span><small>Livelli 2-4</small><b>Welcome kit e risorse</b><span class="d">Prompt AI, documento ganci e CTA, Enciclopedia dei contenuti</span></div><div class="scalino">2-4</div></div>
         <div class="gradino g2 reveal"><div class="card"><span class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l2 2M15 8l2 2"/></svg></span><small>Livello 5</small><b>Unlike Family</b><span class="d">Lo spazio nascosto con i dietro le quinte, più 1 mese di membership gratis</span></div><div class="scalino">5</div></div>
@@ -1142,6 +1145,26 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   addEventListener('scroll',function f(){const h=document.documentElement; if(h.scrollTop>(h.scrollHeight-innerHeight)*.5){removeEventListener('scroll',f);mostra();}},{passive:true});
   document.getElementById('popX').addEventListener('click',nascondi);
   document.querySelectorAll('[data-piano]').forEach(a=>a.addEventListener('click',()=>{fatto=true;nascondi();}));
+})();
+
+(function(){
+  const svg=document.getElementById('sentiero'); if(!svg) return;
+  const scala=document.querySelector('.scala');
+  const NS='http://www.w3.org/2000/svg';
+  function disegna(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    if(innerWidth<=900) return;
+    const wrap=svg.closest('.scala-wrap');
+    function pos(el){let x=0,y=0;while(el){if(el===wrap)break;x+=el.offsetLeft;y+=el.offsetTop;el=el.offsetParent;}return [x,y];}
+    const pts=[...scala.querySelectorAll('.gradino .card')].map(c=>{const q=pos(c);return [q[0]+c.offsetWidth/2, q[1]-24];});
+    if(pts.length<2) return;
+    let d='M'+(pts[0][0]-60)+' '+(pts[0][1]+60)+' Q'+pts[0][0]+' '+(pts[0][1]+60)+' '+pts[0][0]+' '+pts[0][1];
+    for(let i=1;i<pts.length;i++){d+=' Q'+pts[i-1][0]+' '+pts[i][1]+' '+pts[i][0]+' '+pts[i][1];}
+    const path=document.createElementNS(NS,'path'); path.setAttribute('d',d); svg.appendChild(path);
+    pts.forEach((q,i)=>{const c=document.createElementNS(NS,'circle'); c.setAttribute('cx',q[0]); c.setAttribute('cy',q[1]); c.setAttribute('r',i===pts.length-1?7:5.5); if(i===pts.length-1) c.setAttribute('class','top'); svg.appendChild(c);});
+  }
+  disegna(); addEventListener('resize',disegna); addEventListener('load',disegna);
+  if(document.fonts) document.fonts.ready.then(disegna);
 })();
 </script>
 </body>
