@@ -1,0 +1,969 @@
+<!-- wp:html -->
+<style>
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-400.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-500.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-600.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-700.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-800.woff2) format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Open Sauce Sans';src:url(https://academy.unlikeacademy.it/assets/fonts/open-sauce-sans-900.woff2) format('woff2');font-weight:900;font-display:swap}
+@font-face{font-family:'Playfair Display';src:url(https://academy.unlikeacademy.it/assets/fonts/playfair-display-italic-base.woff2) format('woff2');font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:'Gochi Hand';src:url(https://academy.unlikeacademy.it/assets/fonts/gochi-hand-400.woff2) format('woff2');font-weight:400;font-display:swap}
+:root{
+  --fucsia:#CD2471;--fucsia-dk:#A81659;--blu:#227CC0;--blu-dk:#1A5E92;--viola:#5B38C4;--viola-dk:#3F2391;
+  --ink:#3B3638;--body:#5A5456;--gray:#665E61;--line:#E4E0D9;--carta:#F3F2EE;--rosa:#F2C4DC;--rosa-bg:#FCEDF4;--azzurro:#EBF3FA;--scuro:#544B4D;
+  --serif:'Playfair Display',Georgia,serif;--mano:'Gochi Hand',cursive;
+  --ombra:0 18px 38px -20px rgba(59,54,56,.42);--rilievo:7px 8px 0 rgba(34,124,192,.30)
+}
+#ulc,#ulc *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+#ulc{font-family:'Open Sauce Sans',system-ui,sans-serif;color:var(--body);background:var(--carta);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+#ulc img{max-width:100%;height:auto;display:block}
+#ulc a{color:inherit}
+#ulc .wrap{width:min(1180px,92vw);margin-inline:auto}
+#ulc .narrow{max-width:760px}
+#ulc .center{text-align:center}
+#ulc h1,#ulc h2,#ulc h3,#ulc h4{color:var(--ink);letter-spacing:-.045em;line-height:1.02}
+#ulc h2.sh{font-weight:900;font-size:clamp(2.05rem,4.6vw,3.4rem);line-height:.98;letter-spacing:-.05em}
+#ulc h2.sh em,#ulc h1 em{font-family:var(--serif);font-style:italic;font-weight:700;letter-spacing:-.03em;color:var(--fucsia)}
+#ulc h3{font-weight:800;font-size:1.22rem;letter-spacing:-.03em}
+#ulc p.lead{font-size:1.1rem;margin-top:16px}
+#ulc b.k{color:var(--fucsia);font-weight:800}
+#ulc mark{position:relative;background:none;color:#fff;padding:0 .1em;white-space:nowrap}
+#ulc mark::before{content:'';position:absolute;inset:.06em 0 -.02em;background:var(--fucsia);border-radius:.05em;z-index:-1}
+#ulc mark.blu::before{background:var(--blu)}
+#ulc h1,#ulc h2{isolation:isolate}
+#ulc .bg-carta{background:#F3F2EE url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-carta.jpg) center/cover}
+#ulc .bg-tenue{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana-leggera.jpg) center/cover,linear-gradient(172deg,#FCEDF4 0%,#F5EEF6 50%,#EBF3FA 100%);background-blend-mode:multiply,normal}
+#ulc .bg-quaderno{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana-leggera.jpg) center/cover,linear-gradient(rgba(91,56,196,.075) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(91,56,196,.075) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(172deg,#EBF3FA 0%,#F5EEF6 50%,#FCEDF4 100%);background-blend-mode:multiply,normal,normal,normal}
+#ulc .bg-scuro{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana-leggera.jpg) center/cover,#544B4D;background-blend-mode:multiply,normal;color:#fff}
+#ulc .bg-blu{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana.jpg) center/cover,#268CD8;background-blend-mode:multiply,normal;color:#fff}
+#ulc .bg-fucsia{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana.jpg) center/cover,#EA2981;background-blend-mode:multiply,normal;color:#fff}
+#ulc .bg-viola{background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana.jpg) center/cover,#2A1758;background-blend-mode:multiply,normal;color:#fff}
+#ulc .bg-scuro h2,#ulc .bg-scuro h3,#ulc .bg-blu h2,#ulc .bg-blu h3,#ulc .bg-fucsia h2,#ulc .bg-fucsia h3,#ulc .bg-viola h2,#ulc .bg-viola h3{color:#fff}
+#ulc .sec{padding:clamp(60px,8vw,108px) 0;position:relative}
+#ulc .eyebrow{display:inline-block;font-weight:800;font-size:12px;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--blu);padding:8px 11px 7px;border-radius:4px;rotate:-1.6deg;box-shadow:3px 3px 0 rgba(59,54,56,.16);margin-bottom:22px}
+#ulc .eyebrow.fu{background:var(--fucsia)}
+#ulc .eyebrow.c{display:table;margin-inline:auto}
+#ulc .bg-blu .eyebrow,#ulc .bg-fucsia .eyebrow{background:#fff;color:var(--blu)}
+#ulc .bg-fucsia .eyebrow{color:var(--fucsia)}
+#ulc .bg-viola .eyebrow{background:#FF4FA3;color:#fff}
+#ulc .mano{font-family:var(--mano);font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.05;color:var(--blu);rotate:-2deg;transform-origin:left center;display:block;margin-bottom:12px;letter-spacing:0}
+#ulc .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:800;font-size:15.5px;line-height:1.1;text-decoration:none;border:0;border-radius:100px;padding:16px 30px;cursor:pointer;transition:transform .2s,box-shadow .2s;text-align:center}
+#ulc .btn:hover{transform:translate(-1px,-2px)}
+#ulc .btn-fu{background:var(--fucsia);color:#fff;box-shadow:4px 5px 0 rgba(34,124,192,.38)}
+#ulc .btn-blu{background:var(--blu);color:#fff;box-shadow:4px 5px 0 rgba(205,36,113,.30)}
+#ulc .btn-bianco{background:#fff;color:var(--fucsia);box-shadow:4px 5px 0 rgba(59,54,56,.24)}
+#ulc .btn-linea{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+#ulc .btn-viola{background:#fff;color:var(--viola);box-shadow:4px 5px 0 rgba(255,79,163,.45)}
+#ulc .btn-lg{font-size:16.5px;padding:18px 36px}
+#ulc .top-bar{display:block;background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-texture-grana.jpg) center/cover,#2A1758;background-blend-mode:multiply,normal;color:#fff;text-align:center;text-decoration:none;font-size:14.5px;line-height:1.3;padding:10px 16px}
+#ulc .top-bar b{font-weight:800;border-bottom:2px solid #FF4FA3;padding-bottom:1px;white-space:nowrap}
+#ulc .top-bar .s{display:none}
+#ulc header{position:sticky;top:0;z-index:100;background:rgba(243,242,238,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+#ulc .hd{display:flex;align-items:center;justify-content:space-between;gap:18px;height:68px}
+#ulc .hd-logo img{height:34px;width:auto}
+#ulc .hd nav{display:flex;align-items:center;gap:24px;font-weight:700;font-size:14.5px}
+#ulc .hd nav a{text-decoration:none;color:var(--ink)}
+#ulc .hd nav a:hover{color:var(--fucsia)}
+#ulc .hd .accedi{color:var(--gray)}
+#ulc .hd .btn{padding:11px 22px;font-size:14px}
+#ulc .hero{padding:clamp(48px,6vw,84px) 0 clamp(64px,8vw,100px)}
+#ulc .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(34px,5vw,70px);align-items:center}
+#ulc .hero h1{font-weight:900;font-size:clamp(2.4rem,5.2vw,4.15rem);line-height:.96;letter-spacing:-.052em}
+#ulc .hero .lead{max-width:560px}
+#ulc .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+#ulc .hero-nota{margin-top:16px;font-size:14px;color:var(--gray)}
+#ulc .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px;list-style:none}
+#ulc .chips li{background:#fff;border-radius:100px;padding:7px 15px;font-weight:700;font-size:13.5px;color:var(--ink);box-shadow:0 8px 18px -12px rgba(59,54,56,.45)}
+#ulc .chips li:nth-child(odd){rotate:-1deg}
+#ulc .chips li:nth-child(even){rotate:.8deg}
+#ulc .chips li.st{background:var(--viola);color:#fff}
+#ulc .hero-vis{position:relative;padding:20px 0 30px}
+#ulc .finestra{position:relative;background:#fff;border-radius:12px;padding:28px 10px 10px;box-shadow:var(--ombra),var(--rilievo)}
+#ulc .finestra::before{content:'';position:absolute;left:16px;top:11px;width:8px;height:8px;border-radius:50%;background:#DCD7CF;box-shadow:13px 0 0 #DCD7CF,26px 0 0 #DCD7CF}
+#ulc .finestra .url{position:absolute;top:6px;left:62px;right:14px;font-size:11.5px;font-weight:600;color:var(--gray);background:#F6F4F0;border-radius:100px;padding:3px 12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ulc .finestra img{border-radius:5px;width:100%;height:auto}
+#ulc .hero-vis .finestra{rotate:1.6deg}
+#ulc .adesivo-st{position:absolute;left:-26px;bottom:-4px;display:flex;align-items:center;gap:10px;background:var(--viola);color:#fff;border-radius:10px;padding:10px 16px 10px 10px;rotate:-5deg;box-shadow:6px 7px 0 rgba(59,54,56,.22);text-decoration:none;max-width:250px}
+#ulc .adesivo-st img{width:56px;height:auto;flex:0 0 auto;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
+#ulc .adesivo-st b{display:block;font-size:17px;font-weight:900;letter-spacing:-.03em;line-height:1.05}
+#ulc .adesivo-st span{font-size:12.5px;font-weight:600;opacity:.9;line-height:1.25;display:block}
+#ulc .polaroid-g{position:absolute;right:-14px;top:-26px;width:132px;background:#fff;padding:8px 8px 30px;border-radius:5px;rotate:6deg;box-shadow:var(--ombra)}
+#ulc .polaroid-g img{aspect-ratio:1/1;object-fit:cover;object-position:50% 12%;border-radius:3px;height:auto}
+#ulc .polaroid-g span{position:absolute;left:0;right:0;bottom:5px;text-align:center;font-family:var(--mano);font-size:1.15rem;color:var(--ink);line-height:1}
+#ulc .polaroid-g::before{content:'';position:absolute;top:-17px;left:50%;width:36px;height:36px;margin-left:-18px;background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-deco-puntina.png) center/contain no-repeat}
+#ulc .st-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(34px,5vw,72px);align-items:center}
+#ulc .st-logo{width:210px;height:auto;margin-bottom:18px}
+#ulc .bg-viola .lead{color:rgba(255,255,255,.88)}
+#ulc .bg-viola h2.sh em{color:#FF8CC4}
+#ulc .condizioni{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0 30px}
+#ulc .cond{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px 16px 18px}
+#ulc .cond small{display:block;font-weight:800;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#FF8CC4;margin-bottom:8px}
+#ulc .cond b{display:block;color:#fff;font-size:1.25rem;font-weight:900;letter-spacing:-.03em;line-height:1.08}
+#ulc .cond.top{background:#fff;border-color:#fff}
+#ulc .cond.top small{color:var(--viola)}
+#ulc .cond.top b{color:var(--viola-dk)}
+#ulc .st-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+#ulc .st-cta a.link{color:#fff;font-weight:700;font-size:14.5px}
+#ulc .st-vis{position:relative;padding:10px 0 40px}
+#ulc .st-vis .finestra{rotate:-1.4deg;box-shadow:0 30px 60px -28px rgba(0,0,0,.7),7px 8px 0 rgba(255,79,163,.35)}
+#ulc .st-vis .finestra.due{position:absolute;width:62%;right:-18px;bottom:-6px;rotate:3deg}
+#ulc .st-vis .masc{position:absolute;left:-30px;bottom:-14px;width:118px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));rotate:-8deg}
+#ulc .st-cosa{list-style:none;display:grid;gap:9px;margin-top:20px}
+#ulc .st-cosa li{position:relative;padding-left:28px;color:rgba(255,255,255,.9)}
+#ulc .st-cosa li::before{content:'';position:absolute;left:4px;top:.55em;width:11px;height:11px;border-radius:3px;background:#FF4FA3;rotate:45deg}
+#ulc .prob{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+#ulc .pcard{background:#fff;border-radius:14px;padding:24px 22px;box-shadow:var(--ombra)}
+#ulc .pcard:nth-child(1){rotate:-1deg}
+#ulc .pcard:nth-child(3){rotate:1deg}
+#ulc .pcard .n{font-family:var(--mano);font-size:1.6rem;color:var(--fucsia);line-height:1;display:block;margin-bottom:6px}
+#ulc .pcard p{margin-top:8px;font-size:15.5px}
+#ulc .svolta{margin:44px auto 0;max-width:760px;text-align:center;font-size:clamp(1.15rem,2vw,1.4rem);font-weight:700;color:var(--ink);line-height:1.4}
+#ulc .svolta em{font-family:var(--serif);font-weight:700;color:var(--blu)}
+#ulc .dentro{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}
+#ulc .dcard{position:relative;background:#fff;border-radius:14px;padding:24px 22px 22px;box-shadow:var(--ombra)}
+#ulc .dcard .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blu);background:var(--azzurro);border-radius:100px;padding:5px 10px;margin-bottom:12px}
+#ulc .dcard .tag.vip{color:#fff;background:var(--fucsia)}
+#ulc .dcard .tag.st{color:#fff;background:var(--viola)}
+#ulc .dcard p{margin-top:8px;font-size:15px}
+#ulc .dcard.vip{box-shadow:var(--ombra),7px 8px 0 rgba(205,36,113,.22)}
+#ulc .dcard.st{box-shadow:var(--ombra),7px 8px 0 rgba(91,56,196,.25)}
+#ulc .mickel{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(24px,4vw,48px);align-items:center;margin-top:54px;background:#fff;border-radius:18px;padding:clamp(22px,3vw,34px);box-shadow:var(--ombra),7px 8px 0 rgba(205,36,113,.22);rotate:-.5deg}
+#ulc .mk-foto{position:relative;width:170px;background:#fff;padding:9px 9px 32px;border-radius:5px;rotate:-4deg;box-shadow:var(--ombra)}
+#ulc .mk-foto img{aspect-ratio:4/5;object-fit:cover;border-radius:3px;height:auto}
+#ulc .mk-foto span{position:absolute;left:0;right:0;bottom:6px;text-align:center;font-family:var(--mano);font-size:1.2rem;color:var(--ink);line-height:1}
+#ulc .mk-foto::before{content:'';position:absolute;top:-18px;left:50%;width:38px;height:38px;margin-left:-19px;background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-deco-puntina.png) center/contain no-repeat}
+#ulc .mickel h3{font-size:clamp(1.35rem,2.4vw,1.8rem);font-weight:900;line-height:1.05}
+#ulc .mickel h3 em{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--fucsia)}
+#ulc .mickel p{margin-top:10px}
+#ulc .data{display:inline-block;background:var(--fucsia);color:#fff;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-radius:4px;padding:7px 10px 6px;rotate:-1.6deg;margin-bottom:12px}
+#ulc .mk-clone{width:150px;border-radius:12px;rotate:3deg;box-shadow:var(--ombra)}
+#ulc .perchi{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+#ulc .pc{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);border-radius:14px;padding:20px 18px}
+#ulc .pc h3{font-size:1.1rem}
+#ulc .pc p{color:rgba(255,255,255,.88);font-size:14.5px;margin-top:6px}
+#ulc .piani{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;align-items:stretch}
+#ulc .piano{position:relative;display:flex;flex-direction:column;background:#fff;border-radius:16px;padding:26px 20px 22px;box-shadow:var(--ombra)}
+#ulc .piano .nome{font-weight:900;font-size:1.35rem;color:var(--ink);letter-spacing:-.03em}
+#ulc .piano .sotto{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--blu);margin-bottom:6px}
+#ulc .prezzo{margin:12px 0 4px;color:var(--ink)}
+#ulc .prezzo b{font-size:2.5rem;font-weight:900;letter-spacing:-.05em;line-height:1}
+#ulc .prezzo span{font-size:14px;font-weight:600;color:var(--gray)}
+#ulc .alt{font-size:13px;color:var(--gray);min-height:38px;line-height:1.4}
+#ulc .piano .frase{font-size:14.5px;margin:12px 0 14px;color:var(--ink);font-weight:600;line-height:1.4}
+#ulc .piano ul{list-style:none;display:grid;gap:7px;margin-bottom:20px;flex:1}
+#ulc .piano li{position:relative;padding-left:22px;font-size:14px;line-height:1.4}
+#ulc .piano li::before{content:'';position:absolute;left:3px;top:.42em;width:9px;height:9px;border-radius:50%;background:var(--blu)}
+#ulc .piano li.hl{font-weight:800;color:var(--ink)}
+#ulc .piano li.hl::before{background:var(--fucsia)}
+#ulc .piano li.st{font-weight:800;color:var(--viola-dk)}
+#ulc .piano li.st::before{background:var(--viola);border-radius:2px;rotate:45deg}
+#ulc .piano .btn{width:100%;padding:15px 18px}
+#ulc .piano .sotto-btn{font-size:12.5px;color:var(--gray);text-align:center;margin-top:9px}
+#ulc .piano .badge{position:absolute;top:-13px;left:18px;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--blu);border-radius:4px;padding:6px 10px 5px;rotate:-2deg;box-shadow:3px 3px 0 rgba(59,54,56,.16)}
+#ulc .piano.vip{box-shadow:0 0 0 3px var(--fucsia),var(--ombra),7px 8px 0 rgba(205,36,113,.25)}
+#ulc .piano.vip .badge{background:var(--viola)}
+#ulc .piano.vip .sotto{color:var(--fucsia)}
+#ulc .piano.all .badge{background:var(--fucsia)}
+#ulc .confronto{margin-top:34px}
+#ulc details.box{background:#fff;border-radius:14px;box-shadow:var(--ombra);overflow:hidden}
+#ulc details.box>summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:800;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:12px}
+#ulc details.box>summary::-webkit-details-marker{display:none}
+#ulc details.box>summary::after{content:'+';font-size:1.6rem;font-weight:400;color:var(--fucsia);line-height:1}
+#ulc details.box[open]>summary::after{content:'\2212'}
+#ulc .tab{overflow-x:auto;padding:0 12px 16px}
+#ulc table{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+#ulc th,#ulc td{padding:10px 10px;border-bottom:1px solid var(--line);text-align:center}
+#ulc th:first-child,#ulc td:first-child{text-align:left}
+#ulc th{font-weight:800;color:var(--ink);font-size:13px;letter-spacing:.02em}
+#ulc td.si{color:var(--blu);font-weight:900}
+#ulc td.no{color:#B9B2B4}
+#ulc tr.st td{color:var(--viola-dk);font-weight:700}
+#ulc .moduli{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 22px;padding:4px 22px 22px}
+#ulc .mod{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+#ulc .mod b{flex:0 0 42px;color:var(--fucsia);font-weight:900}
+#ulc .mod span{flex:1;color:var(--ink);font-weight:600}
+#ulc .mod small{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--blu);white-space:nowrap}
+#ulc .muro{columns:4 240px;column-gap:16px;margin-top:40px}
+#ulc .fb{break-inside:avoid;margin:0 0 16px;background:#fff;border-radius:12px;padding:20px 8px 8px;position:relative;box-shadow:var(--ombra);cursor:zoom-in}
+#ulc .fb::before{content:'';position:absolute;left:12px;top:7px;width:7px;height:7px;border-radius:50%;background:#DCD7CF;box-shadow:11px 0 0 #DCD7CF,22px 0 0 #DCD7CF}
+#ulc .fb img{border-radius:6px;width:100%;height:auto}
+#ulc .fb:nth-child(odd){rotate:-.8deg}
+#ulc .fb:nth-child(even){rotate:.7deg}
+#ulc .team{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:40px}
+#ulc .tm{background:#fff;border-radius:14px;padding:12px 12px 16px;box-shadow:var(--ombra)}
+#ulc .tm:nth-child(odd){rotate:-1deg}
+#ulc .tm:nth-child(even){rotate:1deg}
+#ulc .tm img{aspect-ratio:4/5;object-fit:cover;object-position:50% 22%;border-radius:8px;width:100%;height:auto}
+#ulc .tm h3{font-size:1.08rem;margin-top:12px}
+#ulc .tm .ruolo{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--fucsia);margin-top:3px}
+#ulc .tm p{font-size:13.5px;margin-top:6px;line-height:1.45}
+#ulc .tm.gemma{grid-column:span 2;display:grid;grid-template-columns:1fr 1.1fr;gap:14px;align-items:center}
+#ulc .tm.gemma img{aspect-ratio:3/4}
+#ulc .premi{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+#ulc .lv{background:#fff;border-radius:14px;padding:18px 16px;box-shadow:var(--ombra);text-align:left}
+#ulc .lv small{display:block;font-weight:800;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--blu)}
+#ulc .lv b{display:block;color:var(--ink);font-size:1.02rem;font-weight:800;margin-top:6px;line-height:1.25}
+#ulc .lv span{display:block;font-size:13px;margin-top:6px;color:var(--gray)}
+#ulc .lv.top{background:var(--fucsia);box-shadow:var(--ombra),6px 7px 0 rgba(34,124,192,.3)}
+#ulc .lv.top small,#ulc .lv.top b,#ulc .lv.top span{color:#fff}
+#ulc .punti{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px;list-style:none}
+#ulc .punti li{background:var(--azzurro);color:var(--blu-dk);font-weight:700;font-size:14px;border-radius:100px;padding:8px 16px}
+#ulc .katia-box{display:grid;grid-template-columns:auto 1fr;gap:clamp(22px,4vw,44px);align-items:center;max-width:900px;margin:0 auto}
+#ulc .kfoto{position:relative;width:200px;background:#fff;padding:10px 10px 36px;border-radius:6px;rotate:-3deg;box-shadow:0 22px 40px -22px rgba(0,0,0,.55)}
+#ulc .kfoto img{aspect-ratio:4/5;object-fit:cover;object-position:50% 25%;border-radius:3px;height:auto}
+#ulc .kfoto span{position:absolute;left:0;right:0;bottom:7px;text-align:center;font-family:var(--mano);font-size:1.35rem;color:var(--ink);line-height:1}
+#ulc .kfoto::before{content:'';position:absolute;top:-19px;left:50%;width:42px;height:42px;margin-left:-21px;background:url(https://unlikeacademy.it/wp-content/uploads/2026/10/club-deco-puntina.png) center/contain no-repeat}
+#ulc .katia-box ul{list-style:none;display:grid;gap:8px;margin:18px 0 24px}
+#ulc .katia-box li{position:relative;padding-left:26px;color:rgba(255,255,255,.9)}
+#ulc .katia-box li::before{content:'';position:absolute;left:4px;top:.55em;width:10px;height:10px;border-radius:50%;background:#fff}
+#ulc .katia-box .cta{display:flex;flex-wrap:wrap;gap:12px}
+#ulc .bg-blu .lead{color:rgba(255,255,255,.9)}
+#ulc .btn-wa{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.8)}
+#ulc .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,5vw,70px);align-items:start}
+#ulc .faq-l{position:sticky;top:96px}
+#ulc .faq details{background:#fff;border-radius:12px;margin-bottom:10px;box-shadow:0 10px 24px -18px rgba(59,54,56,.5)}
+#ulc .faq summary{list-style:none;cursor:pointer;padding:17px 20px;font-weight:800;color:var(--ink);display:flex;justify-content:space-between;gap:14px;align-items:center}
+#ulc .faq summary::-webkit-details-marker{display:none}
+#ulc .faq summary::after{content:'+';font-size:1.5rem;font-weight:400;color:var(--fucsia);line-height:1}
+#ulc .faq details[open] summary::after{content:'\2212'}
+#ulc .faq .fa{padding:0 20px 18px;font-size:15px}
+#ulc .faq .fa a{color:var(--fucsia);font-weight:700}
+#ulc .finale{text-align:center}
+#ulc .finale h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+#ulc .finale p{color:rgba(255,255,255,.92);font-size:1.12rem;margin-top:14px}
+#ulc .finale .hero-cta{justify-content:center}
+#ulc .finale .btn-linea{color:#fff;box-shadow:inset 0 0 0 2px #fff}
+#ulc footer{background:#2E2729;color:rgba(255,255,255,.72);padding:54px 0 34px;font-size:14px}
+#ulc .ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+#ulc .ft-logo{background:#fff;display:inline-block;padding:8px 12px;border-radius:8px}
+#ulc .ft-logo img{height:30px;width:auto}
+#ulc footer h4{color:#fff;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+#ulc footer a{color:rgba(255,255,255,.82);text-decoration:none;display:block;margin-bottom:8px}
+#ulc footer a:hover{color:#fff}
+#ulc footer button{background:none;border:0;color:rgba(255,255,255,.82);font:inherit;cursor:pointer;padding:0}
+#ulc .ft-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:12.5px}
+#ulc .ft-bottom a{display:inline;color:#fff;font-weight:700;border-bottom:1.5px solid currentColor}
+#ulc .lb{position:fixed;inset:0;z-index:2000;background:rgba(30,25,27,.86);display:none;align-items:center;justify-content:center;padding:20px}
+#ulc .lb.on{display:flex}
+#ulc .lb img{max-height:88vh;max-width:min(720px,94vw);border-radius:10px;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+#ulc .lb button{position:absolute;top:16px;right:18px;background:#fff;border:0;border-radius:50%;width:42px;height:42px;font-size:24px;cursor:pointer;color:var(--ink)}
+#ulc .ckb{position:fixed;left:16px;bottom:16px;z-index:1200;max-width:520px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 24px 50px -24px rgba(59,54,56,.55)}
+#ulc .ckb[hidden]{display:none}
+#ulc .ckb p{font-size:13.5px;color:var(--body);line-height:1.5;margin-bottom:12px}
+#ulc .ckb a{color:var(--fucsia);text-decoration:underline}
+#ulc .ckb .ckbtn{display:flex;gap:10px;justify-content:flex-end}
+#ulc .ckb .btn{padding:10px 20px;font-size:14px}
+#ulc .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+#ulc .reveal.in{opacity:1;transform:none}
+@media (max-width:1060px){#ulc .piani{grid-template-columns:repeat(2,1fr)}
+#ulc .team{grid-template-columns:repeat(4,1fr)}
+#ulc .tm.gemma{grid-column:span 4;grid-template-columns:200px 1fr}
+#ulc .premi{grid-template-columns:repeat(3,1fr)}
+#ulc .hd nav .nl{display:none}
+
+}
+@media (max-width:900px){#ulc .hero-grid,#ulc .st-grid,#ulc .faq-grid{grid-template-columns:1fr}
+#ulc .hero-vis{max-width:560px;margin:10px auto 0;width:100%}
+#ulc .st-vis{max-width:600px;margin:0 auto;width:100%}
+#ulc .dentro{grid-template-columns:repeat(2,1fr)}
+#ulc .perchi{grid-template-columns:repeat(2,1fr)}
+#ulc .mickel{grid-template-columns:auto 1fr}
+#ulc .mk-clone{display:none}
+#ulc .faq-l{position:static}
+#ulc .moduli{grid-template-columns:1fr}
+#ulc .ft-grid{grid-template-columns:1fr 1fr}
+
+}
+@media (max-width:640px){#ulc .top-bar .l{display:none}
+#ulc .top-bar .s{display:inline}
+#ulc .hd{height:60px}
+#ulc .hd-logo img{height:28px}
+#ulc .hd nav{gap:14px}
+#ulc .hd .accedi{font-size:13.5px}
+#ulc .hd .btn{padding:10px 16px;font-size:13px}
+#ulc .hero-cta .btn{width:100%}
+#ulc .polaroid-g{width:104px;right:-6px;top:-30px}
+#ulc .adesivo-st{left:-6px;bottom:-14px;max-width:220px}
+#ulc .adesivo-st img{width:46px}
+#ulc .condizioni{grid-template-columns:1fr}
+#ulc .st-vis .finestra.due{width:70%;right:-6px}
+#ulc .st-vis .masc{width:86px;left:-8px}
+#ulc .prob,#ulc .dentro,#ulc .perchi{grid-template-columns:1fr}
+#ulc .mickel{grid-template-columns:1fr;text-align:left}
+#ulc .mk-foto{width:150px}
+#ulc .piani{grid-template-columns:1fr}
+#ulc .team{grid-template-columns:repeat(2,1fr)}
+#ulc .tm.gemma{grid-column:span 2;grid-template-columns:1fr}
+#ulc .premi{grid-template-columns:repeat(2,1fr)}
+#ulc .premi .lv.top{grid-column:span 2}
+#ulc .katia-box{grid-template-columns:1fr;justify-items:center;text-align:center}
+#ulc .katia-box ul{text-align:left}
+#ulc .katia-box .cta{justify-content:center}
+#ulc .katia-box .btn{width:100%}
+#ulc .ft-grid{grid-template-columns:1fr}
+#ulc .ckb{left:10px;right:10px;bottom:10px;padding:12px 12px 12px 14px;display:flex;gap:12px;align-items:center}
+#ulc .ckb p{font-size:12.5px;margin:0;flex:1;line-height:1.4}
+
+}
+@media (prefers-reduced-motion:reduce){#ulc,#ulc *{transition:none!important}
+#ulc .reveal{opacity:1;transform:none}
+html{scroll-behavior:auto}}
+
+
+#ulc{min-height:100vh}
+#ulc a{text-decoration:inherit}
+#ulc .hd nav a,#ulc footer a{text-decoration:none}
+
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://unlikeacademy.it/#org",
+   "name": "Unlike Academy",
+   "url": "https://unlikeacademy.it/",
+   "logo": "https://unlikeacademy.it/wp-content/uploads/2026/10/club-logo-logo.webp",
+   "sameAs": [
+    "https://www.instagram.com/unlikeacademy/"
+   ],
+   "founder": {
+    "@type": "Person",
+    "name": "Gemma Lenoci",
+    "sameAs": [
+     "https://www.instagram.com/gemmalenoci/"
+    ]
+   }
+  },
+  {
+   "@type": "Service",
+   "@id": "https://unlikeacademy.it/#club",
+   "name": "Il Club di Unlike Academy",
+   "serviceType": "Formazione su social media marketing organico per Instagram e TikTok",
+   "description": "Community e academy online con videocorsi su Instagram e TikTok, piano editoriale, live mensili con il team, corso AI per i social, corso CapCut di Mickel Buratin e Stratego, la piattaforma per creare la strategia social e il piano editoriale. Si può entrare gratis.",
+   "provider": {
+    "@id": "https://unlikeacademy.it/#org"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "Italia"
+   },
+   "availableLanguage": "it",
+   "offers": [
+    {
+     "@type": "Offer",
+     "name": "Free",
+     "price": "0",
+     "priceCurrency": "EUR",
+     "url": "https://club.unlikeacademy.it/",
+     "description": "Videocorso introduttivo, community, job board, app"
+    },
+    {
+     "@type": "Offer",
+     "name": "Premium",
+     "price": "39",
+     "priceCurrency": "EUR",
+     "url": "https://unlikeacademy.it/#piani",
+     "description": "Al mese: moduli M0-M6, piano editoriale settimanale, live mensili, Stratego al 50%"
+    },
+    {
+     "@type": "Offer",
+     "name": "VIP",
+     "price": "89",
+     "priceCurrency": "EUR",
+     "url": "https://unlikeacademy.it/#piani",
+     "description": "Al mese: tutto il Premium, Stratego incluso, corso AI, corso CapCut di Mickel Buratin"
+    },
+    {
+     "@type": "Offer",
+     "name": "All-Access",
+     "price": "229",
+     "priceCurrency": "EUR",
+     "url": "https://unlikeacademy.it/#piani",
+     "description": "Ogni 3 mesi, oppure 790 euro all'anno: tutto sbloccato dal primo giorno"
+    }
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://unlikeacademy.it/",
+   "url": "https://unlikeacademy.it/",
+   "name": "Il Club di Unlike Academy",
+   "inLanguage": "it-IT",
+   "about": {
+    "@id": "https://unlikeacademy.it/#club"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Cos'è Stratego e come lo uso nel Club?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "È la piattaforma che abbiamo creato noi per creare la tua strategia social e il tuo piano editoriale. Nel VIP e nell'All-Access hai 1 account incluso, nel Premium lo paghi la metà, e gli account in più sono scontati. Lo trovi su stratego.social"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Quando esce il corso CapCut di Mickel?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Il 29 ottobre. È incluso nel VIP e nell'All-Access"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Posso cambiare piano quando voglio?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sì. Puoi passare dal Free al Premium, dal Premium al VIP, o tornare indietro quando vuoi. Nessun vincolo"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Se disdico, perdo i moduli che ho sbloccato?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "I moduli restano aperti finché sei abbonata. Se disdici, tieni l'accesso al Free"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Che differenza c'è tra VIP e All-Access?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Col VIP paghi mese per mese e i moduli avanzati si sbloccano un po' alla volta. Con l'All-Access scegli tre mesi o un anno, hai tutto aperto da subito e al mese ti costa meno"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Perché i moduli si sbloccano un po' alla volta?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Perché tutto insieme non si riesce ad applicare. Con il ritmo progressivo studi e metti in pratica in parallelo"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Devo già avere un'attività per entrare?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Nel Club c'è chi parte da zero e chi ha un'attività avviata da anni: i contenuti sono pensati per entrambe"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Quanto tempo serve a settimana?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Bastano 2 o 3 ore a settimana. Il piano editoriale e i template sono fatti apposta per farti risparmiare tempo"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "C'è una garanzia?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Il piano Free te lo dice da sé: prima entri, guardi e provi, poi decidi se salire. Non ti chiediamo soldi per farti vedere come lavoriamo"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Posso farmi seguire 1:1?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sì, con i percorsi di mentoring del team Unlike, separati dal Club: li trovi su mentoring.unlikeacademy.it. Nel VIP hai sconti sui percorsi"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+<div id="ulc">
+<a class="top-bar" href="#stratego"><span class="l">Novità nel Club · Stratego, la piattaforma che abbiamo creato noi · </span><span class="s">Novità · </span><b>1 account incluso nel VIP</b></a>
+
+<header>
+  <div class="wrap hd">
+    <a class="hd-logo" href="#top" aria-label="Unlike Academy"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-logo-logo.webp" alt="Unlike Academy" width="768" height="158"></a>
+    <nav>
+      <a class="nl" href="#stratego">Stratego</a>
+      <a class="nl" href="#dentro">Cosa c'è dentro</a>
+      <a class="nl" href="#piani">Piani</a>
+      <a class="nl" href="#faq">Domande</a>
+      <a class="accedi" href="https://login.circle.so/sign_in" target="_blank" rel="noopener">Accedi</a>
+      <a class="btn btn-fu" href="#piani">Scopri i piani</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero bg-tenue" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow fu">Il Club · Unlike Academy</div>
+      <span class="mano">Basta saltare da un corso all'altro</span>
+      <h1>Tutto quello che ti serve per farti <mark>scegliere</mark> sui social, in un posto solo</h1>
+      <p class="lead">Metodo, piano editoriale, live, community, AI e <b class="k">Stratego, la piattaforma che abbiamo creato noi</b>: per usare Instagram e TikTok con una logica, senza inseguire ogni nuovo algoritmo</p>
+      <div class="hero-cta">
+        <a class="btn btn-fu btn-lg" href="#piani">Scopri i piani</a>
+        <a class="btn btn-linea btn-lg" href="https://club.unlikeacademy.it/join?invitation_token=b94b0d798e810b7fc25cdebff1b6391b736c9695-b1a1af7e-bfdd-46a8-91f0-ff61dab76617" target="_blank" rel="noopener" data-piano="free">Entra gratis</a>
+      </div>
+      <p class="hero-nota">Puoi iniziare gratis e salire quando vuoi · disdici quando vuoi</p>
+      <ul class="chips">
+        <li>Piano editoriale</li><li>Live mensili</li><li>Community e app</li><li>Videocorsi</li><li class="st">Stratego</li>
+      </ul>
+    </div>
+    <div class="hero-vis">
+      <figure class="polaroid-g"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-img-gemma-blazer.jpg" alt="Gemma Lenoci" width="900" height="1200"><span>Gemma</span></figure>
+      <div class="finestra"><span class="url">club.unlikeacademy.it</span><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-club-dentro-al-club.jpg" alt="Il Club di Unlike Academy visto da dentro: corsi, dirette e community" width="1200" height="682"></div>
+      <a class="adesivo-st" href="#stratego"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-stratego-mascotte.png" alt="" width="390" height="420"><span><b>Stratego incluso</b>nel piano VIP e All-Access</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGO -->
+<section class="sec bg-viola" id="stratego">
+  <div class="wrap st-grid">
+    <div class="reveal">
+      <div class="eyebrow">Novità nel Club</div>
+      <img class="st-logo" src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-stratego-logo-bianco.png" alt="Stratego" width="900" height="242">
+      <h2 class="sh">Dentro il Club c'è <em>Stratego</em></h2>
+      <p class="lead">È la piattaforma che abbiamo creato noi: ti aiuta a creare la tua strategia social e il tuo piano editoriale, mese dopo mese, puntando a contatti e clienti, non alle visualizzazioni</p>
+      <ul class="st-cosa">
+        <li>Costruisce con te posizionamento e piano editoriale</li>
+        <li>Ti prepara le storie e ti tiene costante con obiettivi e task</li>
+        <li>Analizza i tuoi video e ti dice cosa non va</li>
+      </ul>
+      <div class="condizioni">
+        <div class="cond top"><small>VIP e All-Access</small><b>1 account incluso</b></div>
+        <div class="cond"><small>Premium</small><b>1 account al 50%</b></div>
+        <div class="cond"><small>Account in più</small><b>scontati per chi è nel Club</b></div>
+      </div>
+      <div class="st-cta">
+        <a class="btn btn-viola" href="https://club.unlikeacademy.it/checkout/club-vip" target="_blank" rel="noopener" data-piano="vip">Entra nel VIP con Stratego</a>
+        <a class="link" href="https://stratego.social/" target="_blank" rel="noopener">Scopri Stratego su stratego.social</a>
+      </div>
+    </div>
+    <div class="st-vis reveal">
+      <div class="finestra"><span class="url">stratego.social</span><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-stratego-sito.jpg" alt="Il sito di Stratego: il consulente AI strategico per i social" width="1440" height="900" loading="lazy"></div>
+      <div class="finestra due"><span class="url">La tua strategia social</span><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-stratego-app-esporta.jpg" alt="Stratego: la strategia social pronta da esportare in PowerPoint o in Canva" width="1200" height="690" loading="lazy"></div>
+      <img class="masc" src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-stratego-mascotte.png" alt="" width="390" height="420" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="sec bg-carta">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c">Il vero problema</div>
+      <h2 class="sh">Non è l'algoritmo: sono <mark class="blu">troppi pezzi</mark> separati</h2>
+      <p class="lead">Un corso su Instagram, una strategia per TikTok, un tool AI, un template, un trend da capire. Più strumenti aggiungi, più ti senti confusa</p>
+    </div>
+    <div class="prob">
+      <div class="pcard reveal"><span class="n">1</span><h3>Cerchi la strategia giusta</h3><p>Corsi, template, trend, tool. All'inizio sembra tutto utile, poi ti ritrovi piena di informazioni ma senza una direzione</p></div>
+      <div class="pcard reveal"><span class="n">2</span><h3>Applichi, ma insegui sempre</h3><p>Provi un format e cambia l'algoritmo. Segui un trend e passa. Usi l'AI e i contenuti sembrano uguali a tutti gli altri</p></div>
+      <div class="pcard reveal"><span class="n">3</span><h3>Cambia tutto, e non resta niente</h3><p>Instagram cambia, TikTok cambia, l'AI cambia. Ma attenzione, fiducia e decisione seguono sempre gli stessi meccanismi</p></div>
+    </div>
+    <p class="svolta reveal">Nel Club parti dalla persona che vuoi attrarre: cosa la fa fermare, interessare, fidare e scegliere. Instagram, TikTok, AI e trend diventano <em>strumenti</em>, non padroni</p>
+  </div>
+</section>
+
+<!-- DENTRO -->
+<section class="sec bg-quaderno" id="dentro">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c">Dentro il Club</div>
+      <h2 class="sh">Un posto solo per tutto quello che ti <em>serve</em></h2>
+      <p class="lead">Su Circle, con l'app per iOS e Android: scarichi e sei dentro</p>
+    </div>
+    <div class="dentro">
+      <div class="dcard reveal"><span class="tag">Premium e VIP</span><h3>Piano editoriale</h3><p>Nel Premium ogni settimana 5 idee per i Reel, 5 per TikTok e 5 per le Storie, con template e tutorial. Nel VIP il piano del mese con esempi per nicchia</p></div>
+      <div class="dcard reveal"><span class="tag">Premium e VIP</span><h3>Live mensili con il team</h3><p>In diretta con il team Unlike, e con Gemma nel VIP. Se la perdi, resta nell'archivio</p></div>
+      <div class="dcard reveal"><span class="tag">Per tutte</span><h3>Community e app</h3><p>Chat, presentazioni, risultati, job board e collaborazioni. Le persone si aiutano e si correggono a vicenda</p></div>
+      <div class="dcard reveal"><span class="tag">Premium e VIP</span><h3>Trend e audio</h3><p>Audio in trend e idee pratiche per adattarli alla tua nicchia, senza copiare quello che fanno tutti</p></div>
+      <div class="dcard reveal"><span class="tag">Per tutte</span><h3>Videocorsi, quiz ed esercizi</h3><p>Corsi social dalla A alla Z che non ti insegnano solo gli strumenti, ma a capire il cervello del tuo target</p></div>
+      <div class="dcard reveal"><span class="tag">Per tutte</span><h3>Challenge e premi</h3><p>Ti spingono a pubblicare con costanza: più partecipi, più premi sblocchi, fino a un percorso di un mese con il team</p></div>
+      <div class="dcard vip reveal"><span class="tag vip">VIP e All-Access</span><h3>Corso AI per i social</h3><p>L'intelligenza artificiale come acceleratore, non come sostituto di te. Con aggiornamenti ogni mese</p></div>
+      <div class="dcard vip reveal"><span class="tag vip">VIP e All-Access · dal 29 ottobre</span><h3>Corso CapCut di Mickel Buratin</h3><p>Da clip grezza a video professionale: il montaggio spiegato da chi lo fa ogni giorno, su telefono e su PC</p></div>
+      <div class="dcard st reveal"><span class="tag st">Incluso nel VIP</span><h3>Stratego</h3><p>La piattaforma che abbiamo creato noi per la tua strategia social e il tuo piano editoriale. Nel Premium la paghi la metà</p></div>
+    </div>
+
+    <div class="mickel reveal" id="mickel">
+      <figure class="mk-foto"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-mickel.jpg" alt="Mickel Buratin" width="600" height="800" loading="lazy"><span>Mickel</span></figure>
+      <div>
+        <span class="data">In uscita il 29 ottobre</span>
+        <h3>Da clip grezza a video professionale: <em>il corso CapCut di Mickel</em></h3>
+        <p>Mickel Buratin è videomaker e content creator, con oltre 660 mila follower su TikTok. 15 lezioni in tre livelli, base, intermedio e avanzato, in due versioni: <b class="k">su telefono e su PC</b></p>
+        <p><b>Incluso nel VIP e nell'All-Access</b>, in esclusiva per chi è nel Club</p>
+      </div>
+      <img class="mk-clone" src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-img-capcut-clone.jpg" alt="Un montaggio su CapCut dal corso di Mickel" width="584" height="900" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- PER CHI -->
+<section class="sec bg-blu">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c">Per chi è</div>
+      <h2 class="sh">Quattro strade, un solo Club</h2>
+    </div>
+    <div class="perchi">
+      <div class="pc reveal"><h3>Professioniste, attività e brand</h3><p>Coach, nutrizioniste, esperte, medici estetici: qualsiasi sia la tua professione</p></div>
+      <div class="pc reveal"><h3>SMM e agenzie</h3><p>Freelance, consulenti e piccoli studi che gestiscono i social per gli altri</p></div>
+      <div class="pc reveal"><h3>Creator e aspiranti</h3><p>Chi ha un'idea ma il telefono è ancora sul comodino</p></div>
+      <div class="pc reveal"><h3>Imprenditori digitali</h3><p>Chi ha un prodotto o un servizio online da far crescere</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PIANI -->
+<section class="sec bg-tenue" id="piani">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c fu">Piani e prezzi</div>
+      <h2 class="sh">Scegli il piano giusto per il tuo <em>momento</em></h2>
+      <p class="lead">Puoi entrare gratis e salire quando vuoi. Nessun vincolo: decidi tu il passo</p>
+    </div>
+    <div class="piani">
+      <div class="piano reveal">
+        <div class="sotto">Gratis per sempre</div>
+        <div class="nome">Free</div>
+        <div class="prezzo"><b>0€</b> <span>per sempre</span></div>
+        <div class="alt">Nessuna carta di credito</div>
+        <p class="frase">Inizia da qui: entra, guarda il videocorso gratuito e conosci la community</p>
+        <ul>
+          <li>Videocorso «Inizia qui»</li>
+          <li>Community: chat, presentazioni, risultati</li>
+          <li>Job board per le collaborazioni</li>
+          <li>Lezioni sui casi studio</li>
+          <li>Premi per chi partecipa</li>
+          <li>Unlike-pedia: news, tips e articoli</li>
+          <li>Zona SMM: risorse e kit gratuiti</li>
+          <li>App iOS e Android</li>
+        </ul>
+        <a class="btn btn-linea" href="https://club.unlikeacademy.it/join?invitation_token=b94b0d798e810b7fc25cdebff1b6391b736c9695-b1a1af7e-bfdd-46a8-91f0-ff61dab76617" target="_blank" rel="noopener" data-piano="free">Entra gratis</a>
+      </div>
+      <div class="piano reveal">
+        <span class="badge">Il più scelto</span>
+        <div class="sotto">Formazione e piano settimanale</div>
+        <div class="nome">Premium</div>
+        <div class="prezzo"><b>39€</b> <span>al mese</span></div>
+        <div class="alt">195€ a semestre (1 mese in regalo) · 390€ all'anno (2 mesi in regalo)</div>
+        <p class="frase">Smetti di improvvisare: sai sempre cosa pubblicare, e perché</p>
+        <ul>
+          <li>Tutto del Free</li>
+          <li>Moduli da M0 a M6 con sblocco progressivo</li>
+          <li>Esercizi pratici</li>
+          <li class="hl">Piano editoriale ogni settimana: 5 idee IG, 5 TikTok, 5 Storie</li>
+          <li>Template scaricabili e tutorial</li>
+          <li>Live mensili con il team</li>
+          <li>Trend e idee ogni settimana</li>
+          <li class="st">Stratego: 1 account al 50%</li>
+        </ul>
+        <a class="btn btn-blu" href="https://club.unlikeacademy.it/checkout/club-premium" target="_blank" rel="noopener" data-piano="premium">Diventa Premium</a>
+        <p class="sotto-btn">Disdici quando vuoi</p>
+      </div>
+      <div class="piano vip reveal">
+        <span class="badge">Con Stratego incluso</span>
+        <div class="sotto">Guidato mese per mese</div>
+        <div class="nome">VIP</div>
+        <div class="prezzo"><b>89€</b> <span>al mese</span></div>
+        <div class="alt">Solo mensile</div>
+        <p class="frase">Per chi fa sul serio e vuole essere accompagnata passo dopo passo</p>
+        <ul>
+          <li>Tutto del Premium</li>
+          <li class="st">Stratego: 1 account incluso</li>
+          <li class="hl">Corso CapCut di Mickel Buratin, dal 29 ottobre</li>
+          <li class="hl">Corso AI per i social</li>
+          <li>Moduli da M0 a M6 subito sbloccati</li>
+          <li>Funnel e Instagram dal giorno 30, Storie dal 45, TikTok dal 60</li>
+          <li>Piano editoriale del mese con esempi per nicchia</li>
+          <li>Live con Gemma</li>
+          <li>Lezioni di aggiornamento ogni mese</li>
+          <li>Sconti sui percorsi 1:1</li>
+        </ul>
+        <a class="btn btn-fu" href="https://club.unlikeacademy.it/checkout/club-vip" target="_blank" rel="noopener" data-piano="vip">Passa al VIP</a>
+        <p class="sotto-btn">Disdici quando vuoi</p>
+      </div>
+      <div class="piano all reveal">
+        <span class="badge">Tutto subito</span>
+        <div class="sotto">Il più conveniente al mese</div>
+        <div class="nome">All-Access</div>
+        <div class="prezzo"><b>229€</b> <span>ogni 3 mesi</span></div>
+        <div class="alt">oppure 790€ all'anno, circa 66€ al mese</div>
+        <p class="frase">Per chi sa già dove vuole arrivare e vuole tutto sotto mano, adesso</p>
+        <ul>
+          <li>Tutto il VIP, sbloccato dal primo giorno</li>
+          <li>Tutti i moduli, da M0 a TikTok</li>
+          <li class="st">Stratego: 1 account incluso</li>
+          <li class="hl">Corso CapCut di Mickel e corso AI, subito</li>
+          <li>Piano editoriale del mese con esempi per nicchia</li>
+          <li>Live con Gemma e aggiornamenti</li>
+          <li>Sconti sui percorsi 1:1</li>
+        </ul>
+        <a class="btn btn-blu" href="https://club.unlikeacademy.it/checkout/all-access-sblocca-tutto" target="_blank" rel="noopener" data-piano="all-access">Sblocca tutto</a>
+        <p class="sotto-btn">Trimestrale o annuale</p>
+      </div>
+    </div>
+
+    <div class="confronto reveal">
+      <details class="box">
+        <summary>Il confronto completo tra i piani</summary>
+        <div class="tab">
+          <table>
+            <thead><tr><th></th><th>Free</th><th>Premium</th><th>VIP</th></tr></thead>
+            <tbody>
+              <tr><td>Videocorso «Inizia qui»</td><td class="si">✓</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Community, job board e app</td><td class="si">✓</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Lezioni sui casi studio, Unlike-pedia e Zona SMM</td><td class="si">✓</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Premi per chi partecipa</td><td class="si">✓</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Moduli da M0 a M6</td><td class="no">·</td><td>progressivi</td><td>subito</td></tr>
+              <tr><td>Piano editoriale</td><td class="no">·</td><td>settimanale</td><td>mensile, con esempi per nicchia</td></tr>
+              <tr><td>Template, tutorial, trend e idee</td><td class="no">·</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Esercizi pratici dei moduli</td><td class="no">·</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr><td>Live mensili con il team</td><td class="no">·</td><td class="si">✓</td><td class="si">✓</td></tr>
+              <tr class="st"><td>Stratego</td><td class="no">·</td><td>1 account al 50%</td><td>1 account incluso</td></tr>
+              <tr><td>Moduli avanzati: Funnel, Instagram, Storie, TikTok</td><td class="no">·</td><td class="no">·</td><td class="si">✓</td></tr>
+              <tr><td>Corso AI per i social</td><td class="no">·</td><td class="no">·</td><td class="si">✓</td></tr>
+              <tr><td>Corso CapCut di Mickel Buratin, dal 29 ottobre</td><td class="no">·</td><td class="no">·</td><td class="si">✓</td></tr>
+              <tr><td>Live con Gemma e lezioni di aggiornamento</td><td class="no">·</td><td class="no">·</td><td class="si">✓</td></tr>
+              <tr><td>Sconti sui percorsi 1:1</td><td class="no">·</td><td class="no">·</td><td class="si">✓</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:13px;margin:12px 4px 0;color:var(--gray)">L'All-Access ha tutto il VIP, sbloccato dal primo giorno</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="confronto reveal" id="moduli">
+      <details class="box">
+        <summary>La mappa dei moduli, da M00 a TikTok</summary>
+        <p style="padding:0 22px 8px;font-size:14.5px">Si sbloccano un po' alla volta, per studiare e applicare in parallelo. Con l'All-Access sono tutti aperti dal primo giorno</p>
+        <div class="moduli">
+          <div class="mod"><b>M00</b><span>Introduzione al percorso</span><small>Premium</small></div>
+          <div class="mod"><b>M01</b><span>Mindset · i 3 paradigmi del successo</span><small>Premium</small></div>
+          <div class="mod"><b>M02</b><span>Mercato digitale e algoritmo social</span><small>Premium</small></div>
+          <div class="mod"><b>M03</b><span>Acquisizione o viralità</span><small>Premium</small></div>
+          <div class="mod"><b>M04</b><span>Branding e personal brand</span><small>Premium · 30 gg</small></div>
+          <div class="mod"><b>M05</b><span>Target e strategia</span><small>Premium · 60 gg</small></div>
+          <div class="mod"><b>M06</b><span>Creazione contenuti e piano editoriale</span><small>Premium 90 gg · VIP subito</small></div>
+          <div class="mod"><b>M07</b><span>Social media funnel</span><small>VIP · 30 gg</small></div>
+          <div class="mod"><b>M08</b><span>Instagram 2026</span><small>VIP · 30 gg</small></div>
+          <div class="mod"><b>M09</b><span>Masterclass Stories-Telling</span><small>VIP · 45 gg</small></div>
+          <div class="mod"><b>M10</b><span>TikTok 2026</span><small>VIP · 60 gg</small></div>
+          <div class="mod"><b>B1</b><span>Corso CapCut di Mickel Buratin</span><small>VIP · 29 ottobre</small></div>
+          <div class="mod"><b>B2</b><span>Intelligenza artificiale per i social</span><small>VIP · subito</small></div>
+          <div class="mod"><b>B3</b><span>Lezioni di aggiornamento</span><small>VIP · ogni mese</small></div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- RISULTATI -->
+<section class="sec bg-carta" id="risultati">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c">Le persone del Club</div>
+      <h2 class="sh">Lo raccontano <mark>loro</mark></h2>
+      <p class="lead">Messaggi veri di chi è nel Club. Tocca per ingrandire</p>
+    </div>
+    <div class="muro">
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_0319.jpg" alt="Messaggio di una persona del Club: ha iniziato la membership a fine luglio e un video è arrivato a un milione di visualizzazioni" loading="lazy" width="792" height="900"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_9102.jpg" alt="Messaggio: il primo video virale su Instagram, 40 follower all'ora" loading="lazy" width="827" height="900"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_1522.jpg" alt="Messaggio: non mi era mai successo di avere tutti questi like" loading="lazy" width="900" height="668"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_0326.jpg" alt="Messaggio: seguendo ogni giorno le idee dei reel le views sono passate da 100 a 1500" loading="lazy" width="900" height="367"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_0329.jpg" alt="Messaggio: video andato virale subito, 43 mila visualizzazioni" loading="lazy" width="900" height="770"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_6186.jpg" alt="Commento: grazie alle idee di contenuto e alla pianificazione 250 nuovi follower in 10 giorni" loading="lazy" width="900" height="554"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_0332.jpg" alt="Messaggio: grazie ai trend condivisi 35 mila views su TikTok sul profilo di una cliente" loading="lazy" width="900" height="462"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_6188.jpg" alt="Commento: dal piano editoriale di giugno le pubblicazioni e le interazioni sono aumentate" loading="lazy" width="900" height="788"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_2230.jpg" alt="Messaggio: i video sono virali, va meglio che con il beauty" loading="lazy" width="900" height="511"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_6184.jpg" alt="Commento: tutti i reel sopra le 3 mila visualizzazioni" loading="lazy" width="900" height="363"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_6185.jpg" alt="Commento: ho acquistato la membership, molti video sono andati virali con i ganci" loading="lazy" width="900" height="224"></figure>
+      <figure class="fb reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-feedback-IMG_6189.jpg" alt="Commento: il piano editoriale lo adoro" loading="lazy" width="900" height="265"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec bg-tenue" id="team">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c">Il team</div>
+      <h2 class="sh">Le persone che lavorano <em>per te</em></h2>
+      <p class="lead">Qui parli con Gemma e con il team, non con assistenti anonimi</p>
+    </div>
+    <div class="team">
+      <div class="tm gemma reveal">
+        <img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-img-gemma-blazer.jpg" alt="Gemma Lenoci" loading="lazy" width="900" height="1200">
+        <div><h3>Gemma Lenoci</h3><div class="ruolo">Founder</div><p>Oltre 5 anni di formazione social e consulenze 1:1 con centinaia di imprenditrici. È la voce del metodo Unlike e fa una live al mese nel Club. Laureata in economia e in marketing management alla Bocconi</p></div>
+      </div>
+      <div class="tm reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-elena.jpg" alt="Elena del team Unlike" loading="lazy" width="560" height="700"><h3>Elena</h3><div class="ruolo">Piano editoriale e community</div><p>Prepara il piano editoriale e le news, e anima la community</p></div>
+      <div class="tm reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-sofia.jpg" alt="Sofia del team Unlike" loading="lazy" width="560" height="700"><h3>Sofia</h3><div class="ruolo">Live e revisioni</div><p>Fa le live e rivede i contenuti</p></div>
+      <div class="tm reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-emilia.jpg" alt="Emilia del team Unlike" loading="lazy" width="560" height="700"><h3>Emilia</h3><div class="ruolo">AI e Stratego</div><p>Esperta di intelligenza artificiale: cura il corso AI e lavora su Stratego</p></div>
+      <div class="tm reveal"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-katia.jpg" alt="Katia del team Unlike" loading="lazy" width="560" height="700"><h3>Katia</h3><div class="ruolo">Ti aiuta a scegliere</div><p>Se non sai quale piano fa per te, ne parli con lei in 15 minuti</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PREMI -->
+<section class="sec bg-carta" id="premi">
+  <div class="wrap">
+    <div class="narrow center reveal" style="margin-inline:auto">
+      <div class="eyebrow c fu">Più partecipi, più premi sblocchi</div>
+      <h2 class="sh">Nel Club la costanza viene <mark class="blu">premiata</mark></h2>
+      <p class="lead">Ogni like che ricevi dalle altre persone del Club è un punto. I livelli sono 9, e ognuno sblocca qualcosa</p>
+    </div>
+    <div class="premi">
+      <div class="lv reveal"><small>Livello 2-4</small><b>Welcome kit, prompt AI, documento ganci e CTA, Enciclopedia dei contenuti</b></div>
+      <div class="lv reveal"><small>Livello 5</small><b>Unlike Family</b><span>Lo spazio nascosto con i dietro le quinte, più 1 mese di membership gratis</span></div>
+      <div class="lv reveal"><small>Livello 6</small><b>Analisi del profilo</b><span>Una call con il team</span></div>
+      <div class="lv reveal"><small>Livello 7-8</small><b>Kit Unlike a casa e tutti i corsi a vita</b></div>
+      <div class="lv top reveal"><small>Livello 9</small><b>Un percorso di un mese con il team Unlike</b><span>Il premio più alto del Club</span></div>
+    </div>
+    <ul class="punti reveal">
+      <li>+1 per ogni like ricevuto</li><li>+10 per un risultato condiviso</li><li>+5 per un quiz superato</li><li>+5 per la challenge del mese</li><li>+2 per un commento di supporto</li>
+    </ul>
+  </div>
+</section>
+
+<!-- KATIA -->
+<section class="sec bg-blu" id="katia">
+  <div class="wrap">
+    <div class="katia-box reveal">
+      <figure class="kfoto"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-team-katia.jpg" alt="Katia del team Unlike" loading="lazy" width="560" height="700"><span>Katia</span></figure>
+      <div>
+        <div class="eyebrow">Ancora dubbi?</div>
+        <h2 class="sh">Prima di entrare, parliamone in 15 minuti</h2>
+        <p class="lead">Non sai quale piano fa per te? Prenoti una videocall con Katia, del team Unlike, senza impegno</p>
+        <ul>
+          <li>Ti spiega i moduli più adatti a te</li>
+          <li>Guardate insieme i tuoi social di oggi</li>
+          <li>Se il Club non fa per te, te lo dice</li>
+        </ul>
+        <div class="cta">
+          <a class="btn btn-bianco" href="https://calendar.app.google/v6w2AikT3nHwcc8h8" target="_blank" rel="noopener" data-piano="call-katia">Prenota 15 minuti con Katia</a>
+          <a class="btn btn-wa" href="https://wa.me/393513043290" target="_blank" rel="noopener">Scrivi a Katia su WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec bg-tenue" id="faq">
+  <div class="wrap faq-grid">
+    <div class="faq-l reveal">
+      <div class="eyebrow">Domande</div>
+      <h2 class="sh">Le risposte che <em>cerchi</em></h2>
+      <p class="lead">Non trovi la tua? Scrivi a <a href="mailto:info@unlikeacademy.com" style="color:var(--fucsia);font-weight:700">info@unlikeacademy.com</a> o a Katia su <a href="https://wa.me/393513043290" target="_blank" rel="noopener" style="color:var(--fucsia);font-weight:700">WhatsApp, +39 351 304 3290</a>: rispondiamo entro 24-48 ore</p>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Cos'è Stratego e come lo uso nel Club?</summary><div class="fa"><p>È la piattaforma che abbiamo creato noi per creare la tua strategia social e il tuo piano editoriale. Nel VIP e nell'All-Access hai 1 account incluso, nel Premium lo paghi la metà, e gli account in più sono scontati. Lo trovi su <a href="https://stratego.social/" target="_blank" rel="noopener">stratego.social</a></p></div></details>
+      <details><summary>Quando esce il corso CapCut di Mickel?</summary><div class="fa"><p>Il 29 ottobre. È incluso nel VIP e nell'All-Access</p></div></details>
+      <details><summary>Posso cambiare piano quando voglio?</summary><div class="fa"><p>Sì. Puoi passare dal Free al Premium, dal Premium al VIP, o tornare indietro quando vuoi. Nessun vincolo</p></div></details>
+      <details><summary>Se disdico, perdo i moduli che ho sbloccato?</summary><div class="fa"><p>I moduli restano aperti finché sei abbonata. Se disdici, tieni l'accesso al Free</p></div></details>
+      <details><summary>Che differenza c'è tra VIP e All-Access?</summary><div class="fa"><p>Col VIP paghi mese per mese e i moduli avanzati si sbloccano un po' alla volta. Con l'All-Access scegli tre mesi o un anno, hai tutto aperto da subito e al mese ti costa meno</p></div></details>
+      <details><summary>Perché i moduli si sbloccano un po' alla volta?</summary><div class="fa"><p>Perché tutto insieme non si riesce ad applicare. Con il ritmo progressivo studi e metti in pratica in parallelo</p></div></details>
+      <details><summary>Devo già avere un'attività per entrare?</summary><div class="fa"><p>No. Nel Club c'è chi parte da zero e chi ha un'attività avviata da anni: i contenuti sono pensati per entrambe</p></div></details>
+      <details><summary>Quanto tempo serve a settimana?</summary><div class="fa"><p>Bastano 2 o 3 ore a settimana. Il piano editoriale e i template sono fatti apposta per farti risparmiare tempo</p></div></details>
+      <details><summary>C'è una garanzia?</summary><div class="fa"><p>Il piano Free te lo dice da sé: prima entri, guardi e provi, poi decidi se salire. Non ti chiediamo soldi per farti vedere come lavoriamo</p></div></details>
+      <details><summary>Posso farmi seguire 1:1?</summary><div class="fa"><p>Sì, con i percorsi di mentoring del team Unlike, separati dal Club: li trovi su <a href="https://mentoring.unlikeacademy.it/" target="_blank" rel="noopener">mentoring.unlikeacademy.it</a>. Nel VIP hai sconti sui percorsi</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINALE -->
+<section class="sec bg-fucsia finale">
+  <div class="wrap narrow" style="margin-inline:auto">
+    <h2 class="sh">Il momento giusto per entrare è adesso</h2>
+    <p>Tra sei mesi vorrai essere in un punto diverso da dove sei oggi, e l'unico modo per arrivarci è iniziare</p>
+    <div class="hero-cta">
+      <a class="btn btn-bianco btn-lg" href="#piani">Scegli il tuo piano</a>
+      <a class="btn btn-linea btn-lg" href="https://club.unlikeacademy.it/join?invitation_token=b94b0d798e810b7fc25cdebff1b6391b736c9695-b1a1af7e-bfdd-46a8-91f0-ff61dab76617" target="_blank" rel="noopener" data-piano="free">Entra gratis</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo"><img src="https://unlikeacademy.it/wp-content/uploads/2026/10/club-logo-logo.webp" alt="Unlike Academy" width="768" height="158"></div>
+        <p style="margin-top:14px;max-width:380px">L'academy italiana di social media marketing organico per Instagram e TikTok, fondata da Gemma Lenoci</p>
+      </div>
+      <div>
+        <h4>Unlike</h4>
+        <a href="https://login.circle.so/sign_in" target="_blank" rel="noopener">Accedi al Club</a>
+        <a href="https://stratego.social/" target="_blank" rel="noopener">Stratego</a>
+        <a href="https://mentoring.unlikeacademy.it/" target="_blank" rel="noopener">Mentoring 1:1</a>
+        <a href="https://wa.me/393513043290" target="_blank" rel="noopener">WhatsApp di Katia</a>
+        <a href="mailto:info@unlikeacademy.com">info@unlikeacademy.com</a>
+      </div>
+      <div>
+        <h4>Legale</h4>
+        <a href="https://unlikeacademy.it/Termini-e-Condizioni/" target="_blank" rel="noopener">Termini e condizioni</a>
+        <a href="https://www.iubenda.com/privacy-policy/15204920" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://www.iubenda.com/privacy-policy/15204920/cookie-policy" target="_blank" rel="noopener">Cookie policy</a>
+        <button type="button" id="ckOpen">Preferenze cookie</button>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© <span id="yr"></span> Unlike Academy · UNLIKE FZCO · Building A1, DSO, Dubai (UAE) · TRN 104228845400003</span>
+      <span>Website Creation by <a href="https://unlikeagency.com/" target="_blank" rel="noopener">Unlike Agency</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Immagine ingrandita"><button type="button" id="lbX" aria-label="Chiudi">&times;</button><img id="lbImg" alt=""></div>
+
+<div class="ckb" id="ckb" role="dialog" aria-label="Preferenze cookie" hidden>
+  <p>Usiamo i cookie di Meta per capire quali annunci ti hanno portata qui. Li attiviamo solo se accetti · <a href="https://www.iubenda.com/privacy-policy/15204920/cookie-policy" target="_blank" rel="noopener">Cookie policy</a></p>
+  <div class="ckbtn"><button class="btn btn-linea" id="ckNo" type="button">Rifiuta</button><button class="btn btn-fu" id="ckSi" type="button">Accetta</button></div>
+</div>
+</div>
+<script>
+var PIXEL_ID='558379620509892';
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return;}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+(function(){
+  const lb=document.getElementById('lb'),img=document.getElementById('lbImg');
+  function close(){lb.classList.remove('on');document.body.style.overflow='';}
+  document.querySelectorAll('.fb img').forEach(i=>i.parentElement.addEventListener('click',()=>{img.src=i.src;img.alt=i.alt;lb.classList.add('on');document.body.style.overflow='hidden';}));
+  document.getElementById('lbX').addEventListener('click',close);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+})();
+(function(){
+  const ckb=document.getElementById('ckb');
+  function loadPixel(){
+    if(window.fbq||!PIXEL_ID)return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init',PIXEL_ID);fbq('track','PageView');
+  }
+  let scelta=null;try{scelta=localStorage.getItem('ul_cookie')}catch(e){}
+  if(scelta==='si')loadPixel();else if(scelta!=='no'&&!/[?&]og\b/.test(location.search))ckb.hidden=false;
+  function salva(v){try{localStorage.setItem('ul_cookie',v)}catch(e){}ckb.hidden=true;if(v==='si')loadPixel();}
+  document.getElementById('ckSi').addEventListener('click',()=>salva('si'));
+  document.getElementById('ckNo').addEventListener('click',()=>salva('no'));
+  document.getElementById('ckOpen').addEventListener('click',()=>{ckb.hidden=false;});
+  document.querySelectorAll('[data-piano]').forEach(a=>a.addEventListener('click',()=>{try{if(!window.fbq)return;const p=a.dataset.piano;if(p==='free')fbq('trackCustom','ClubGratisClick');else if(p==='call-katia')fbq('track','Schedule');else fbq('track','InitiateCheckout',{content_name:p});}catch(e){}}));
+})();
+</script>
+<!-- /wp:html -->
