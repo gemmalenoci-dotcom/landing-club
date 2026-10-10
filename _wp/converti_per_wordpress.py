@@ -1,4 +1,4 @@
-"""Trasforma index.html (pagina statica del Club) nel contenuto di una pagina WordPress.
+"""Trasforma sorgente.html (pagina statica del Club) nel contenuto di una pagina WordPress.
 
 Uso: python3 _wp/converti_per_wordpress.py  -> scrive _wp/contenuto.html
 
@@ -9,7 +9,7 @@ Uso: python3 _wp/converti_per_wordpress.py  -> scrive _wp/contenuto.html
 import re, pathlib
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
-SRC = (BASE / 'index.html').read_text(encoding='utf-8')
+SRC = (BASE / 'sorgente.html').read_text(encoding='utf-8')
 MEDIA = 'https://unlikeacademy.it/wp-content/uploads/2026/10/club-'
 FONTS = 'https://academy.unlikeacademy.it/assets/fonts/'
 
