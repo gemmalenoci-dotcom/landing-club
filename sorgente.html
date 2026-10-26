@@ -464,6 +464,44 @@ footer button{background:none;border:0;color:rgba(255,255,255,.82);font:inherit;
 .ft-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:12.5px}
 .ft-bottom a{display:inline;color:#fff;font-weight:700;border-bottom:1.5px solid currentColor}
 
+/*LEZ-CSS*/
+.lezopen{display:flex;justify-content:space-between;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:0;border-radius:14px;box-shadow:var(--ombra);padding:18px 22px;cursor:pointer;font-family:inherit;color:var(--ink);transition:transform .2s}
+.lezopen:hover{transform:translate(-1px,-2px)}
+.lezopen b{display:block;font-weight:800;font-size:16.5px;color:var(--ink)}
+.lezopen small{display:block;font-size:13.5px;color:var(--gray);font-weight:600;margin-top:2px}
+.lezopen .pdf{flex:0 0 auto;background:var(--fucsia);color:#fff;border-radius:100px;padding:9px 16px;font-weight:900;font-size:12px;letter-spacing:.08em;text-transform:uppercase;box-shadow:3px 4px 0 rgba(34,124,192,.35)}
+.lez{position:fixed;inset:0;z-index:1900;background:rgba(30,25,27,.8);display:none;align-items:center;justify-content:center;padding:16px}
+.lez.on{display:flex}
+.lez-doc{position:relative;background:#FFFEFA;width:min(1000px,100%);max-height:94vh;border-radius:20px;box-shadow:0 40px 90px -20px rgba(0,0,0,.6);display:flex;flex-direction:column;overflow:hidden}
+.lez-head{padding:26px 34px 0;border-bottom:1px solid var(--line);background:#fff}
+.lez-head .eyebrow{margin-bottom:8px}
+.lez-head h2{font-size:clamp(1.5rem,3.2vw,2.1rem);font-weight:900;letter-spacing:-.035em;line-height:1.05;color:var(--ink);margin:0 40px 6px 0}
+.lez-head h2 em{font-family:var(--serif);font-style:italic;font-weight:700;color:var(--fucsia)}
+.lez-head p.s{font-size:14.5px;margin:0 0 14px;max-width:62ch}
+.lez-x{position:absolute;top:14px;right:16px;width:40px;height:40px;border-radius:50%;border:0;background:var(--carta);color:var(--ink);font-size:24px;line-height:1;cursor:pointer}
+.lez-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:2px 0 14px}
+.lez-tab{border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:100px;padding:9px 16px;font-family:inherit;font-weight:800;font-size:13.5px;cursor:pointer}
+.lez-tab small{font-weight:700;color:var(--gray);margin-left:6px;font-size:12px}
+.lez-tab.on{background:var(--blu);border-color:var(--blu);color:#fff}
+.lez-tab.on small{color:#DCEBF7}
+.lez-body{overflow:auto;padding:22px 34px 26px;flex:1 1 auto;-webkit-overflow-scrolling:touch}
+.lez-pan{display:none}
+.lez-pan.on{display:block}
+.lez-pan>p.n{font-size:14.5px;margin:0 0 18px;padding:12px 16px;background:var(--azzurro);border-radius:12px;color:var(--ink)}
+.lez-cols{columns:2 320px;column-gap:38px}
+.lez-mod{break-inside:avoid;margin:0 0 24px}
+.lez-mod h4{font-size:15px;font-weight:900;letter-spacing:-.01em;color:var(--fucsia);margin:0 0 6px;padding-bottom:6px;border-bottom:2px solid var(--fucsia)}
+.lez-mod ol{list-style:none;margin:0;padding:0;counter-reset:l}
+.lez-mod li{counter-increment:l;display:flex;gap:10px;font-size:14px;line-height:1.35;padding:6px 0;border-bottom:1px dashed var(--line);color:var(--ink);font-weight:600}
+.lez-mod li::before{content:counter(l);flex:0 0 22px;color:var(--blu);font-weight:900;text-align:right}
+.lez-mod li.q{color:var(--gray);font-style:italic;font-weight:600}
+.lez-foot{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:14px 34px;border-top:1px solid var(--line);background:#fff}
+.lez-foot span{font-size:12.5px;color:var(--gray)}
+.lez-foot .b{display:flex;gap:10px;flex-wrap:wrap}
+.lez-foot .btn{padding:12px 20px;font-size:14px}
+html.lezlock,html.lezlock body{overflow:hidden}
+@media (max-width:640px){.lez{padding:0}.lez-doc{max-height:100vh;height:100vh;border-radius:0}.lez-head{padding:20px 18px 0}.lez-body{padding:16px 18px 20px}.lez-foot{padding:12px 18px}.lez-tab{padding:8px 12px;font-size:12.5px}.lezopen{padding:14px 16px}.lezopen small{font-size:12.5px}}
+/*/LEZ-CSS*/
 /* lightbox, cookie, reveal */
 .lb{position:fixed;inset:0;z-index:2000;background:rgba(30,25,27,.86);display:none;align-items:center;justify-content:center;padding:20px}
 .lb.on{display:flex}
@@ -875,8 +913,20 @@ h2.sh em{white-space:nowrap}
           <div class="mod"><b>B2</b><span>AI per i social e Claude</span><small>VIP · subito</small></div>
           <div class="mod"><b>B3</b><span>Lezioni di aggiornamento</span><small>VIP · ogni mese</small></div>
         </div>
+<!--LEZ-BTN2-->
+        <p style="padding:6px 22px 20px;margin:0"><button type="button" class="btn btn-fu" data-lez-open>Vedi tutte le lezioni, una per una</button></p>
+<!--/LEZ-BTN2-->
       </details>
     </div>
+
+<!--LEZ-BTN-->
+    <div class="confronto reveal" id="lezioni-btn">
+      <button type="button" class="lezopen" data-lez-open>
+        <span><b>Tutte le lezioni, una per una</b><small>I nomi di ogni lezione dei videocorsi, da sfogliare o scaricare in PDF</small></span>
+        <span class="pdf">Apri</span>
+      </button>
+    </div>
+<!--/LEZ-BTN-->
   </div>
 </section>
 
@@ -1079,6 +1129,59 @@ h2.sh em{white-space:nowrap}
   </div>
 </footer>
 
+<!--LEZ-HTML-->
+<div class="lez" id="lez" role="dialog" aria-modal="true" aria-labelledby="lezT" aria-hidden="true">
+  <div class="lez-doc">
+    <button class="lez-x" type="button" id="lezX" aria-label="Chiudi">&times;</button>
+    <div class="lez-head">
+      <div class="eyebrow">Il programma dei videocorsi</div>
+      <h2 id="lezT">Tutte le lezioni del Club, <em>una per una</em></h2>
+      <p class="s">I nomi di ogni lezione dei videocorsi, come li trovi dentro il Club. Quali apri dipende dal piano: nel Free un assaggio, nel Premium da M1 a M6, nel VIP anche i moduli avanzati, l'AI e CapCut, nell'All-Access tutto sbloccato dal primo giorno</p>
+      <div class="lez-tabs" role="tablist"><button type="button" class="lez-tab on" role="tab" data-t="free" id="lt-free" aria-controls="lp-free" aria-selected="true">Free<small>18 lezioni</small></button><button type="button" class="lez-tab" role="tab" data-t="premium" id="lt-premium" aria-controls="lp-premium" aria-selected="false">Premium<small>66 lezioni</small></button><button type="button" class="lez-tab" role="tab" data-t="vip" id="lt-vip" aria-controls="lp-vip" aria-selected="false">VIP<small>+35 lezioni</small></button><button type="button" class="lez-tab" role="tab" data-t="ai" id="lt-ai" aria-controls="lp-ai" aria-selected="false">Corso AI<small>32 lezioni</small></button><button type="button" class="lez-tab" role="tab" data-t="capcut" id="lt-capcut" aria-controls="lp-capcut" aria-selected="false">CapCut<small>dal 29 ottobre</small></button></div>
+    </div>
+    <div class="lez-body" id="lezBody"><div class="lez-pan on" role="tabpanel" id="lp-free" aria-labelledby="lt-free"><p class="n">Il videocorso gratuito <b>From Zero to Visible</b>: un assaggio del metodo, con due lezioni per ogni modulo, il webinar sull'AI e il primo taglio su CapCut con Mickel</p><div class="lez-cols"><div class="lez-mod"><h4>Introduzione</h4><ol><li>Benvenuto</li><li>Introduzione ai social</li><li>Il gioco: la scalata Unlike</li><li>Tools e strumenti utili</li><li>Come usare l&#x27;interfaccia del corso</li></ol></div><div class="lez-mod"><h4>M1 · Mindset</h4><ol><li>Introduzione</li><li>Paradigmi del successo: Pattern Recognition</li></ol></div><div class="lez-mod"><h4>M2 · Mercato digitale e algoritmi social</h4><ol><li>Introduzione</li><li>Il mercato digitale e gli algoritmi social</li></ol></div><div class="lez-mod"><h4>M3 · Acquisizione vs viralità</h4><ol><li>Introduzione</li><li>La differenza tra acquisizione e viralità</li></ol></div><div class="lez-mod"><h4>M4 · Branding</h4><ol><li>Introduzione</li><li>Posizionamento e Brand Identity</li></ol></div><div class="lez-mod"><h4>M5 · Target e strategia</h4><ol><li>Introduzione</li><li>Target: Impara a leggere la mente del tuo utente</li></ol></div><div class="lez-mod"><h4>Webinar · L&#x27;unica intelligenza artificiale che ti serve nel 2026</h4><ol><li>Webinar: l&#x27;unica AI che ti serve nel 2026</li></ol></div><div class="lez-mod"><h4>Regalo · Il primo taglio su CapCut con Mickel</h4><ol><li>Il primo taglio su CapCut · Telefono</li><li>Il primo taglio su CapCut · PC</li></ol></div></div></div><div class="lez-pan" role="tabpanel" id="lp-premium" aria-labelledby="lt-premium"><p class="n">Il videocorso <b>From Visible to Profitable</b>, dall'introduzione ai contenuti e al piano editoriale (moduli da M1 a M6). I moduli si sbloccano un po' alla volta, con esercizi e quiz di fine modulo</p><div class="lez-cols"><div class="lez-mod"><h4>Introduzione</h4><ol><li>Benvenuto</li><li>Introduzione ai social</li><li>Il gioco: la scalata Unlike</li><li>Tools e strumenti utili</li><li>Come usare l&#x27;interfaccia del corso</li><li>Piano Premium</li></ol></div><div class="lez-mod"><h4>M1 · Mindset</h4><ol><li>Introduzione</li><li>Paradigmi del successo: Pattern Recognition</li><li>Paradigmi del successo: Feedback Loop</li><li>Paradigmi del successo: RAS</li><li>Le 10 paure sui social</li><li>Costruisci il tuo carisma</li><li class="q">Quiz modulo mindset</li><li>Bonus: creare contenuti anche se sei bloccato</li></ol></div><div class="lez-mod"><h4>M2 · Mercato digitale e algoritmi social</h4><ol><li>Introduzione</li><li>Il mercato digitale e gli algoritmi social</li><li>Social media</li><li>Algoritmo social (generale)</li><li>Algoritmo Instagram</li><li>Algoritmo TikTok</li><li>Motore di ricerca</li><li>Intelligenza artificiale</li><li>Come leggere gli aggiornamenti</li><li class="q">Quiz modulo mercato digitale</li></ol></div><div class="lez-mod"><h4>M3 · Acquisizione vs viralità</h4><ol><li>Introduzione</li><li>Profili professionali vs influencer</li><li>Strategia di acquisizione: come trasformare i social in uno strumento di vendita</li><li>Strategia di viralità: come progettare contenuti che si diffondono</li><li>Da traffico controllato a posseduto</li><li>La differenza tra acquisizione e viralità</li><li class="q">Quiz modulo acquisizione vs viralità</li></ol></div><div class="lez-mod"><h4>M4 · Branding</h4><ol><li>Introduzione</li><li>Posizionamento e Brand Identity</li><li>Visual identity: il vestito del tuo brand</li><li>Local brand</li><li>Product Brand</li><li>Personal Brand</li><li>Tone Of Voice</li><li class="q">Quiz modulo branding</li></ol></div><div class="lez-mod"><h4>M5 · Target e strategia</h4><ol><li>Target: Impara a leggere la mente del tuo utente</li><li>La psicologia dell&#x27;acquisto: perché le persone comprano davvero</li><li>Obiettivi SMART e pianificazione strategica</li><li>Competitor e analisi strategica</li><li>Introduzione</li><li>La tua dichiarazione strategica</li><li class="q">Quiz modulo Target &amp; Strategia</li></ol></div><div class="lez-mod"><h4>M6 · Contenuti e piano editoriale</h4><ol><li>Introduzione</li><li>I formati dei contenuti: Short Form &amp; Long Form</li><li>Le 5 anime dei contenuti</li><li>La biochimica dei contenuti</li><li>Il processo di creazione: Ideazione, Struttura</li><li>Il processo di creazione: GANCIO</li><li>Il processo di creazione: Sviluppo Centrale</li><li>Il processo di creazione: Call To Action</li><li>Il processo di creazione: Struttura, registrazione, editing, pubblicazione</li><li>Script e Caption</li><li>Tipologie di contenuto: introduzione</li><li>Tipologie di contenuto: Format di Contenuto</li><li>Metriche e analitiche: leggere i dati</li><li>Tipologie di contenuto: Format Tecnici</li><li>Creazione del Piano Editoriale</li><li>Template Piano Editoriale</li><li>Esempio PED Mentoring</li><li>Approfondimento: contenuti RELATABLE</li><li>Bonus e prossimi moduli: nel piano VIP</li><li class="q">Quiz modulo contenuti &amp; PED</li></ol></div></div></div><div class="lez-pan" role="tabpanel" id="lp-vip" aria-labelledby="lt-vip"><p class="n">Il videocorso <b>From Profitable to Unstoppable</b>: tutto il Premium, con i moduli da M1 a M6 già sbloccati (le lezioni sono quelle del tab Premium), più i moduli avanzati qui sotto: funnel, Instagram, storie e TikTok</p><div class="lez-cols"><div class="lez-mod"><h4>M7 · Social media funnel</h4><ol><li>Il Social Media Funnel: la mappa completa</li><li>SEO per i social: fatti trovare</li><li>Ottimizzazione profilo: la tua landing page social</li><li>Touch point e lead magnet: cattura il contatto</li><li>Automazioni e Manychat: il tuo assistente invisibile</li><li>Dalla chat alla consulenza: il processo</li><li>Link in bio e infrastruttura</li><li class="q">Quiz di fine modulo: Social Media Funnel</li></ol></div><div class="lez-mod"><h4>M8 · Unlock your Instagram</h4><ol><li>Introduzione</li><li>Algoritmo Instagram 2026</li><li>Profilo e Bio Instagram: ottimizzazione, conversione e SEO</li><li>Caption Instagram: SEO, CTA efficaci e hashtag 2026</li><li>Caroselli Instagram: guida strategica completa</li><li>Reels Instagram: segnali, watch time e Reel di prova</li><li>Le metriche Instagram che contano davvero</li><li>Instagram Edits e gli strumenti nativi per creator</li><li>Aggiornamenti Instagram 2026</li><li>Bonus: approfondimento Reels di prova</li></ol></div><div class="lez-mod"><h4>M8.2 · Masterclass Instagram Stories-Telling</h4><ol><li>Introduzione</li><li>Errori da evitare nelle storie</li><li>Come aumentare le visualizzazioni delle storie</li><li>Come aumentare le interazioni delle storie</li><li>Come utilizzare lo storytelling</li><li>Vendere tramite le storie Instagram</li><li>Storie in evidenza</li></ol></div><div class="lez-mod"><h4>M9 · Be discovered on TikTok</h4><ol><li>Algoritmo TikTok 2026</li><li>Profilo TikTok 2026: Ottimizzazione SEO e setup</li><li>Caption TikTok: SEO, regole e lunghezze</li><li>Formati nativi TikTok: Duetti, Stitch e filtri</li><li>Caroselli TikTok: guida e tipologie</li><li>Suoni TikTok: strategia audio e trend</li><li>TikTok vs Instagram: differenze strategiche</li><li>Monetizzazione TikTok: novità</li><li>Analitiche TikTok: TikTok Studio e le metriche che contano</li><li>Introduzione</li></ol></div></div></div><div class="lez-pan" role="tabpanel" id="lp-ai" aria-labelledby="lt-ai"><p class="n"><b>AI per i social + Claude</b>: usare l'intelligenza artificiale senza sembrare AI, con esercitazioni, skill pronte e laboratori. Nel VIP e nell'All-Access</p><div class="lez-cols"><div class="lez-mod"><h4>Introduzione e materiali</h4><ol><li>Parti da qui: introduzione e materiali</li><li>Introduzione</li></ol></div><div class="lez-mod"><h4>Parte 1 · Mindset AI</h4><ol><li>Il mindset del professionista: AI per i social</li><li>L&#x27;AI che non si vede: come creare contenuti autentici</li><li>Esercitazione: Introduzione a Claude Chat e Progetti</li><li>Esercitazione: come eliminare le red flag AI + file</li><li>Lezione con Emilia: perché il prompt non basta all&#x27;AI</li></ol></div><div class="lez-mod"><h4>Parte 2 · Prompting che converte</h4><ol><li>Prompting pratico: i 3 livelli per ottenere quello che vuoi</li><li>Come scrivere script che non sembrino script</li><li>Esercitazione: come migliorare bio, ganci e script</li><li>Esercitazione: come migliorare uno script</li><li>Bonus: come farsi scrivere i prompt dall&#x27;AI</li></ol></div><div class="lez-mod"><h4>Parte 3 · AI per la strategia</h4><ol><li>AI per la strategia: dal target allo script</li><li>AI per i dati: smetti di pubblicare a caso</li><li>AI per lo storytelling del personal brand</li><li>Esercitazione: workflow in 4 step per contenuti che convertono</li><li>Esercitazione: analisi dati</li><li>Esercitazione: connettore Notion per analisi dati</li><li>Esercitazione: Intervista per Personal Brand</li></ol></div><div class="lez-mod"><h4>Parte 4 · Cassetta degli attrezzi</h4><ol><li>La tua cassetta degli attrezzi AI</li><li>Differenze tra Claude Chat, Cowork, Code e Design</li><li>Confronto AI - giugno 2026</li><li>Gestire allucinazioni ed errori</li><li>Guida Claude Co-work: progetti, analisi profili, artefatti (generatore di caption)</li></ol></div><div class="lez-mod"><h4>Parte 5 · Laboratorio AI</h4><ol><li>Skill per «umanizzare» i testi</li><li>Esercitazione con Emilia: Analizzare i competitors con Claude Chrome</li><li>Esercitazione con Emilia: crea le tue foto con l&#x27;AI + effetto cartoon</li><li>Skill - crea foto AI</li><li>Skill - da analisi a idee di contenuto</li><li>Esercitazione con Emilia: creazione video intro</li><li>Esercitazione con Emilia: Utilizzo di Claude Cowork per creare una routine per la ricerca automatica di notizie del tuo settore</li><li>Esercitazione con Emilia: Connettori</li></ol></div></div></div><div class="lez-pan" role="tabpanel" id="lp-capcut" aria-labelledby="lt-capcut"><p class="n">Il corso di <b>Mickel Buratin</b>, da clip grezza a video professionale: 15 lezioni in tre livelli, base, intermedio e avanzato, più il benvenuto e il saluto finale, in due versioni (le stesse lezioni su <b>telefono</b> e su <b>PC</b>). Nel VIP e nell'All-Access</p><div class="lez-cols"><div class="lez-mod"><h4>Inizia da qui</h4><ol><li>Benvenuto: telefono o PC, e come girare per montare bene</li></ol></div><div class="lez-mod"><h4>Modulo 1 · Monta il tuo primo video</h4><ol><li>Installa CapCut e scopri l&#x27;interfaccia</li><li>Importa le clip, muoviti nella timeline, taglia</li><li>Titoli e testi: font, stili e livelli</li><li>Musica e suoni: il sound design che fa la differenza</li><li>Esporta senza perdere qualità: risoluzione, fps e bitrate</li></ol></div><div class="lez-mod"><h4>Modulo 2 · Dai ritmo ai tuoi video</h4><ol><li>Transizioni che servono la storia</li><li>Montare a ritmo: i beat automatici e la sincronizzazione</li><li>Sottotitoli automatici e animati</li><li>Template: un video pronto in due minuti</li><li>Filtri e color correction</li></ol></div><div class="lez-mod"><h4>Modulo 3 · Il livello professionale</h4><ol><li>L&#x27;effetto clone con le maschere</li><li>Zoom con i keyframe e speed ramp</li><li>Pubblica bene: le impostazioni per Instagram, TikTok e YouTube</li></ol></div><div class="lez-mod"><h4>Bonus · Parola a Mickel</h4><ol><li>Come ho fatto il mio video da 8 milioni di visualizzazioni</li><li>Dopo il montaggio: CTA, engagement e insight</li></ol></div><div class="lez-mod"><h4>Il prossimo passo</h4><ol><li>Il prossimo passo</li></ol></div></div></div></div>
+    <div class="lez-foot">
+      <span>Aggiornato al 26 ottobre 2026 · le lezioni nuove si aggiungono ogni mese</span>
+      <div class="b"><a class="btn btn-linea" href="https://academy.unlikeacademy.it/assets/lezioni/unlike-academy-tutte-le-lezioni.pdf" target="_blank" rel="noopener" download>Scarica il PDF</a><a class="btn btn-fu" href="#piani" id="lezPiani">Scegli il tuo piano</a></div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  const el=document.getElementById('lez');
+  if(!el){return;}
+  const tabs=el.querySelectorAll('.lez-tab'),pans=el.querySelectorAll('.lez-pan'),body=document.getElementById('lezBody');
+  let ultimo=null;
+  function tab(k){
+    tabs.forEach(function(t){const on=t.dataset.t===k;t.classList.toggle('on',on);t.setAttribute('aria-selected',on?'true':'false');});
+    pans.forEach(function(p){p.classList.toggle('on',p.id==='lp-'+k);});
+    body.scrollTop=0;
+  }
+  function apri(k){
+    ultimo=document.activeElement;
+    if(k){tab(k);}
+    el.classList.add('on');el.setAttribute('aria-hidden','false');
+    document.documentElement.classList.add('lezlock');
+    document.getElementById('lezX').focus();
+    try{if(location.hash!=='#lezioni'){history.replaceState(null,'','#lezioni');}}catch(e){}
+  }
+  function chiudi(){
+    el.classList.remove('on');el.setAttribute('aria-hidden','true');
+    document.documentElement.classList.remove('lezlock');
+    try{if(location.hash==='#lezioni'){history.replaceState(null,'',location.pathname+location.search);}}catch(e){}
+    if(ultimo){if(ultimo.focus){ultimo.focus();}}
+  }
+  document.querySelectorAll('[data-lez-open]').forEach(function(b){b.addEventListener('click',function(){apri();});});
+  tabs.forEach(function(t){t.addEventListener('click',function(){tab(t.dataset.t);});});
+  document.getElementById('lezX').addEventListener('click',chiudi);
+  document.getElementById('lezPiani').addEventListener('click',function(){chiudi();});
+  el.addEventListener('click',function(e){if(e.target===el){chiudi();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(el.classList.contains('on')){chiudi();}}});
+  if(location.hash==='#lezioni'){setTimeout(function(){apri();},400);}
+  window.addEventListener('hashchange',function(){if(location.hash==='#lezioni'){if(!el.classList.contains('on')){apri();}}});
+})();
+</script>
+<!--/LEZ-HTML-->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Immagine ingrandita"><button type="button" id="lbX" aria-label="Chiudi">&times;</button><img id="lbImg" alt=""></div>
 
 <div class="pop" id="pop" role="dialog" aria-label="Videocorso gratuito" aria-hidden="true">
